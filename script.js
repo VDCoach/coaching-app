@@ -1678,7 +1678,18 @@ function showRpeModal(cardIndex, sessionId, exoName, onConfirm) {
         el.querySelector('.rpe-modal-close').onclick = closeRpeModal;
         el.onclick = (e) => { if (e.target === el) closeRpeModal(); };
         el.querySelector('.rpe-modal-slider').addEventListener('input', (e) => {
-            el.querySelector('.rpe-modal-value').textContent = e.target.value;
+            const val = parseInt(e.target.value, 10) || 1;
+            el.querySelector('.rpe-modal-value').textContent = String(val);
+            // mettre à jour la couleur du thumb en fonction de la position
+            const min = parseInt(e.target.min, 10) || 1;
+            const max = parseInt(e.target.max, 10) || 10;
+            const ratio = (val - min) / (max - min || 1);
+            const green = { r: 22, g: 163, b: 74 };   // #16a34a
+            const red = { r: 239, g: 68, b: 68 };     // #ef4444
+            const r = Math.round(green.r + (red.r - green.r) * ratio);
+            const g = Math.round(green.g + (red.g - green.g) * ratio);
+            const b = Math.round(green.b + (red.b - green.b) * ratio);
+            e.target.style.setProperty('--rpe-thumb-color', `rgb(${r}, ${g}, ${b})`);
         });
         el.querySelector('.rpe-modal-confirm').onclick = () => {
             const id = el._currentRpeId;
@@ -1696,8 +1707,23 @@ function showRpeModal(cardIndex, sessionId, exoName, onConfirm) {
     const existingVal = document.getElementById(idRpe)?.value || '';
     const slider = el.querySelector('.rpe-modal-slider');
     const valueSpan = el.querySelector('.rpe-modal-value');
-    if (slider) { slider.value = existingVal || '7'; slider.dispatchEvent(new Event('input')); }
-    if (valueSpan) valueSpan.textContent = slider?.value || '7';
+    // Récupérer le RPE cible du coach pour cet exercice (si défini)
+    let targetRpe = null;
+    const sessions = globalData && globalData.sessions ? globalData.sessions : [];
+    const session = sessions.find(s => (s.id || '') === sessionId);
+    if (session && Array.isArray(session.exercises)) {
+        const exo = session.exercises[cardIndex];
+        if (exo && exo.rpe_target != null) {
+            const n = parseInt(exo.rpe_target, 10);
+            if (!isNaN(n) && n >= 1 && n <= 10) targetRpe = String(n);
+        }
+    }
+    const initial = existingVal || targetRpe || '7';
+    if (slider) {
+        slider.value = initial;
+        slider.dispatchEvent(new Event('input'));
+    }
+    if (valueSpan) valueSpan.textContent = slider?.value || initial;
     el.querySelector('.rpe-modal-exo').textContent = exoName || 'Exercice';
     el._onConfirm = onConfirm;
     el.classList.add('active');

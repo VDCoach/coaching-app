@@ -1692,8 +1692,8 @@ body.guided-mode .superset-row .exercise-card:not(.superset-current) {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #fff;
-    border: 2px solid rgba(239, 68, 68, 0.9);
+    background: var(--rpe-thumb-color, #ffffff);
+    border: 2px solid var(--rpe-thumb-color, rgba(239, 68, 68, 0.9));
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     cursor: pointer;
     margin-top: -9px;
@@ -1703,8 +1703,8 @@ body.guided-mode .superset-row .exercise-card:not(.superset-current) {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #fff;
-    border: 2px solid rgba(239, 68, 68, 0.9);
+    background: var(--rpe-thumb-color, #ffffff);
+    border: 2px solid var(--rpe-thumb-color, rgba(239, 68, 68, 0.9));
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
