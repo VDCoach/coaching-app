@@ -1680,20 +1680,30 @@ body.guided-mode .superset-row .exercise-card:not(.superset-current) {
 .rpe-modal-slider::-webkit-slider-runnable-track {
     height: 6px;
     border-radius: 999px;
-    background: linear-gradient(90deg, rgba(187, 247, 208, 0.9), rgba(239, 68, 68, 0.95));
+    background: linear-gradient(90deg,
+        #22c55e 0%,
+        #eab308 33%,
+        #f97316 66%,
+        #ef4444 100%
+    );
 }
 .rpe-modal-slider::-moz-range-track {
     height: 6px;
     border-radius: 999px;
-    background: linear-gradient(90deg, rgba(187, 247, 208, 0.9), rgba(239, 68, 68, 0.95));
+    background: linear-gradient(90deg,
+        #22c55e 0%,
+        #eab308 33%,
+        #f97316 66%,
+        #ef4444 100%
+    );
 }
 .rpe-modal-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: var(--rpe-thumb-color, #ffffff);
-    border: 2px solid var(--rpe-thumb-color, rgba(239, 68, 68, 0.9));
+    background: var(--slider-thumb-color, #ffffff);
+    border: 2px solid var(--slider-thumb-color, rgba(239, 68, 68, 0.9));
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     cursor: pointer;
     margin-top: -9px;
@@ -1703,8 +1713,8 @@ body.guided-mode .superset-row .exercise-card:not(.superset-current) {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: var(--rpe-thumb-color, #ffffff);
-    border: 2px solid var(--rpe-thumb-color, rgba(239, 68, 68, 0.9));
+    background: var(--slider-thumb-color, #ffffff);
+    border: 2px solid var(--slider-thumb-color, rgba(239, 68, 68, 0.9));
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -2332,20 +2342,31 @@ input:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--primary-soft); 
 .score-slider::-webkit-slider-runnable-track {
     height: 6px;
     border-radius: 999px;
-    background: linear-gradient(90deg, rgba(252, 231, 243, 0.9), rgba(239, 68, 68, 0.9));
+    /* Échelle 0 → 10 : vert → jaune → orange → rouge */
+    background: linear-gradient(90deg,
+        #22c55e 0%,
+        #eab308 33%,
+        #f97316 66%,
+        #ef4444 100%
+    );
 }
 .score-slider::-moz-range-track {
     height: 6px;
     border-radius: 999px;
-    background: linear-gradient(90deg, rgba(252, 231, 243, 0.9), rgba(239, 68, 68, 0.9));
+    background: linear-gradient(90deg,
+        #22c55e 0%,
+        #eab308 33%,
+        #f97316 66%,
+        #ef4444 100%
+    );
 }
 .score-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #fff;
-    border: 2px solid var(--primary);
+    background: var(--slider-thumb-color, #ffffff);
+    border: 2px solid var(--slider-thumb-color, var(--primary));
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     cursor: pointer;
     margin-top: -9px; /* centrer sur la piste */
@@ -2354,8 +2375,8 @@ input:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--primary-soft); 
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #fff;
-    border: 2px solid var(--primary);
+    background: var(--slider-thumb-color, #ffffff);
+    border: 2px solid var(--slider-thumb-color, var(--primary));
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     cursor: pointer;
 }
