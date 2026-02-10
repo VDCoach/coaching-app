@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Programme Coaching</title>
+    <meta name="description" content="Ton programme d'entraînement personnalisé — suivi des séances, chrono et bilan envoyé à ton coach.">
+    <meta property="og:title" content="Mon Programme Coaching">
+    <meta property="og:description" content="Programme d'entraînement personnalisé — séances, suivi et bilan coach.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#B76E79">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Lato:wght@400;700&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="install-banner" class="install-banner" role="status" aria-live="polite" hidden>
+        <span class="install-icon">📲</span>
+        <span>Installe l'app sur ton téléphone pour un accès rapide et hors ligne.</span>
+        <div class="install-banner-actions">
+            <button type="button" class="install-banner-btn install-banner-install" id="btn-install-app">Installer</button>
+            <button type="button" class="install-banner-btn install-banner-dismiss" id="btn-dismiss-install">Plus tard</button>
+        </div>
+    </div>
+    <div id="progress-container"><div id="progress-bar"></div></div>
+
+    <header class="header-main">
+        <div class="header-top">
+            <div class="header-left">
+                <div id="suivi-header-bar" class="suivi-header-bar" aria-live="polite" hidden></div>
+            </div>
+            <div class="header-center">
+                <h1 id="client-name" class="loading-skeleton">Chargement...</h1>
+                <p id="program-title" class="subtitle loading-skeleton">...</p>
+            </div>
+            <div class="header-right">
+                <button type="button" class="header-menu-btn" id="header-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="header-actions">⋯</button>
+                <div class="header-actions" id="header-actions" role="menu">
+                    <button type="button" class="btn-add-to-agenda" id="btn-add-to-agenda" aria-label="Ajouter la séance à mon agenda" title="Ajouter à mon agenda" aria-haspopup="true" aria-expanded="false">📅 Ajouter à mon agenda</button>
+                    <button type="button" class="btn-focus-mode" id="btn-focus-mode" aria-label="Mode focus : un exercice à la fois, valide tes séries en un clic" title="Un exercice à la fois, idéal en plein effort">◐ Focus</button>
+                    <button type="button" class="btn-dark-mode" id="btn-dark-mode" aria-label="Mode sombre" title="Mode sombre">🌙</button>
+                    <button type="button" class="btn-settings" id="btn-settings" aria-label="Paramètres" title="Paramètres">⚙️</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="calendar-wrap" class="calendar-wrap">
+        <div id="calendar-strip" class="calendar-container"></div>
+        <div id="week-context" class="week-context" aria-live="polite"></div>
+        <div id="weekly-goal-banner" class="weekly-goal-banner" aria-live="polite"></div>
+        <div id="next-session" class="next-session" aria-live="polite"></div>
+    </div>
+    <div id="stats-bar" class="stats-bar" aria-live="polite"></div>
+
+    <main id="workout-container"></main>
+    <div class="guided-nav" id="guided-nav" hidden>
+        <button type="button" class="guided-nav-btn" id="btn-guided-prev">← Précédent</button>
+        <button type="button" class="guided-nav-btn" id="btn-guided-next">Suivant →</button>
+        <button type="button" class="guided-nav-btn" id="btn-guided-exit">Vue complète</button>
+    </div>
+    <button type="button" class="btn-progression-toggle" id="btn-progression-toggle" aria-expanded="false">📈 Ma progression</button>
+
+    <!-- Modal Mensurations & Suivi -->
+    <div id="suivi-overlay" class="suivi-overlay" role="dialog" aria-modal="true" aria-labelledby="suivi-modal-title" aria-hidden="true">
+        <div class="suivi-modal">
+            <span class="suivi-close" tabindex="0" role="button" aria-label="Fermer">&times;</span>
+            <h2 id="suivi-modal-title" class="suivi-modal-title">Mensurations & Suivi</h2>
+            <div class="suivi-modal-body">
+                <section class="suivi-section">
+                    <h3 class="suivi-section-title">📏 Mensurations</h3>
+                    <p class="suivi-hint">Enregistré à la date du jour.</p>
+                    <div class="suivi-form-row">
+                        <label for="suivi-tour-taille">Tour de taille (cm)</label>
+                        <input type="number" id="suivi-tour-taille" class="suivi-input" min="0" step="0.5" placeholder="—">
+                    </div>
+                    <div class="suivi-form-row">
+                        <label for="suivi-tour-hanches">Tour de hanches (cm)</label>
+                        <input type="number" id="suivi-tour-hanches" class="suivi-input" min="0" step="0.5" placeholder="—">
+                    </div>
+                    <div class="suivi-form-row">
+                        <label for="suivi-tour-poitrine">Tour de poitrine (cm)</label>
+                        <input type="number" id="suivi-tour-poitrine" class="suivi-input" min="0" step="0.5" placeholder="—">
+                    </div>
+                    <div class="suivi-form-row">
+                        <label for="suivi-tour-cuisses">Tour de cuisses (cm)</label>
+                        <input type="number" id="suivi-tour-cuisses" class="suivi-input" min="0" step="0.5" placeholder="—">
+                    </div>
+                    <div class="suivi-form-row">
+                        <label for="suivi-tour-bras">Tour de bras (cm)</label>
+                        <input type="number" id="suivi-tour-bras" class="suivi-input" min="0" step="0.5" placeholder="—">
+                    </div>
+                    <button type="button" class="btn-suivi-save" id="btn-suivi-save-mensurations">Enregistrer les mensurations</button>
+                </section>
+                <section class="suivi-section">
+                    <h3 class="suivi-section-title">⚖️ Poids corporel</h3>
+                    <p class="suivi-hint">Enregistré à la date du jour.</p>
+                    <div class="suivi-form-row">
+                        <label for="suivi-poids">Poids (kg)</label>
+                        <input type="number" id="suivi-poids" class="suivi-input" min="0" step="0.1" placeholder="—">
+                    </div>
+                    <button type="button" class="btn-suivi-save" id="btn-suivi-save-poids">Enregistrer le poids</button>
+                </section>
+                <section class="suivi-section">
+                    <h3 class="suivi-section-title">👕 Vêtement test</h3>
+                    <p class="suivi-hint">Un vêtement de référence pour voir l’évolution (jean, robe…). Note comment il te va.</p>
+                    <div class="suivi-form-row">
+                        <label for="suivi-vetement-name">Vêtement</label>
+                        <input type="text" id="suivi-vetement-name" class="suivi-input" placeholder="Ex : Jean taille 38">
+                    </div>
+                    <div class="suivi-form-row">
+                        <label for="suivi-vetement-feeling">Comment il te va</label>
+                        <select id="suivi-vetement-feeling" class="suivi-input">
+                            <option value="">— Choisir —</option>
+                            <option value="trop_petit">Trop petit</option>
+                            <option value="serre_mais_va">Je me sens serré mais ça va</option>
+                            <option value="pile">Pile à ma taille</option>
+                            <option value="peu_large">Un peu large</option>
+                            <option value="trop_grand">Trop grand</option>
+                        </select>
+                    </div>
+                    <div class="suivi-form-row">
+                        <label for="suivi-vetement-note">Note (optionnel)</label>
+                        <input type="text" id="suivi-vetement-note" class="suivi-input" placeholder="Détails...">
+                    </div>
+                    <button type="button" class="btn-suivi-save" id="btn-suivi-save-vetement">Enregistrer</button>
+                </section>
+                <section class="suivi-section">
+                    <h3 class="suivi-section-title">🎯 Affichage dans le header</h3>
+                    <p class="suivi-hint">Affiche une barre de progression vers ton objectif en haut de l'app. <strong>Maximum 3 suivis affichés</strong> (les 3 premiers cochés ci‑dessous).</p>
+                    <div class="suivi-form-row suivi-check">
+                        <label><input type="checkbox" id="suivi-show-poids"> Afficher le poids</label>
+                    </div>
+                    <div class="suivi-form-row">
+                        <label for="suivi-objectif-poids">Objectif poids (kg)</label>
+                        <input type="number" id="suivi-objectif-poids" class="suivi-input" min="0" step="0.1" placeholder="Ex : 65">
+                    </div>
+                    <div class="suivi-form-row suivi-check">
+                        <label><input type="checkbox" id="suivi-show-taille"> Afficher le tour de taille</label>
+                    </div>
+                    <div class="suivi-form-row">
+                        <label for="suivi-objectif-taille">Objectif tour de taille (cm)</label>
+                        <input type="number" id="suivi-objectif-taille" class="suivi-input" min="0" step="0.5" placeholder="Ex : 70">
+                    </div>
+                    <div class="suivi-form-row suivi-check">
+                        <label><input type="checkbox" id="suivi-show-hanches"> Afficher le tour de hanches</label>
+                    </div>
+                    <div class="suivi-form-row">
+                        <label for="suivi-objectif-hanches">Objectif tour de hanches (cm)</label>
+                        <input type="number" id="suivi-objectif-hanches" class="suivi-input" min="0" step="0.5" placeholder="Ex : 95">
+                    </div>
+                    <div class="suivi-form-row suivi-check">
+                        <label><input type="checkbox" id="suivi-show-poitrine"> Afficher le tour de poitrine</label>
+                    </div>
+                    <div class="suivi-form-row">
+                        <label for="suivi-objectif-poitrine">Objectif tour de poitrine (cm)</label>
+                        <input type="number" id="suivi-objectif-poitrine" class="suivi-input" min="0" step="0.5" placeholder="Ex : 90">
+                    </div>
+                    <div class="suivi-form-row suivi-check">
+                        <label><input type="checkbox" id="suivi-show-cuisses"> Afficher le tour de cuisses</label>
+                    </div>
+                    <div class="suivi-form-row">
+                        <label for="suivi-objectif-cuisses">Objectif tour de cuisses (cm)</label>
+                        <input type="number" id="suivi-objectif-cuisses" class="suivi-input" min="0" step="0.5" placeholder="Ex : 55">
+                    </div>
+                    <div class="suivi-form-row suivi-check">
+                        <label><input type="checkbox" id="suivi-show-bras"> Afficher le tour de bras</label>
+                    </div>
+                    <div class="suivi-form-row">
+                        <label for="suivi-objectif-bras">Objectif tour de bras (cm)</label>
+                        <input type="number" id="suivi-objectif-bras" class="suivi-input" min="0" step="0.5" placeholder="Ex : 28">
+                    </div>
+                    <div class="suivi-form-row suivi-check">
+                        <label><input type="checkbox" id="suivi-show-vetement"> Afficher le vêtement test</label>
+                    </div>
+                    <button type="button" class="btn-suivi-save btn-suivi-save-prefs" id="btn-suivi-save-prefs">Enregistrer les préférences</button>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Historique du suivi -->
+    <div id="suivi-historique-overlay" class="suivi-overlay" role="dialog" aria-modal="true" aria-labelledby="suivi-historique-title" aria-hidden="true">
+        <div class="suivi-modal suivi-historique-modal">
+            <span class="suivi-close suivi-historique-close" tabindex="0" role="button" aria-label="Fermer">&times;</span>
+            <h2 id="suivi-historique-title" class="suivi-modal-title">Historique & progrès</h2>
+            <div id="suivi-historique-body" class="suivi-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Modal progression (clean girl / aesthetics) -->
+    <div id="progression-overlay" class="progression-overlay" role="dialog" aria-modal="true" aria-labelledby="progression-title" aria-hidden="true">
+        <div class="progression-modal">
+            <span class="close-progression" tabindex="0" role="button" aria-label="Fermer la fenêtre">&times;</span>
+            <h2 id="progression-title" class="progression-title">Ma progression</h2>
+            <p class="progression-subtitle">Tes records, ton volume et tes petites victoires en un coup d'œil.</p>
+            <div id="progression-modal-body" class="progression-modal-body"></div>
+        </div>
+    </div>
+    
+    <div id="reset-session-wrap" class="reset-session-wrap"></div>
+
+    <div class="whatsapp-bottom" id="whatsapp-bottom">
+        <button type="button" id="btn-send-whatsapp" aria-label="Terminer la séance et envoyer le rapport au coach par WhatsApp">
+            Terminer & Envoyer au Coach 
+        </button>
+    </div>
+
+    <footer class="coach-signature" id="coach-signature"></footer>
+
+    <div id="milestone-overlay" class="milestone-overlay" role="dialog" aria-modal="true" aria-labelledby="milestone-title" aria-hidden="true">
+        <div class="milestone-modal">
+            <h2 id="milestone-title" class="milestone-title">Palier atteint 🏆</h2>
+            <div id="milestone-modal-body" class="milestone-modal-body"></div>
+        </div>
+    </div>
+
+    <div id="completion-overlay" class="completion-overlay" role="dialog" aria-modal="true" aria-labelledby="completion-title" aria-hidden="true">
+        <div class="completion-modal">
+            <span class="close-modal" tabindex="0" role="button" aria-label="Fermer la fenêtre">&times;</span>
+            
+            <div id="completion-title" class="completion-title">Séance terminée — bravo ! 🏆</div>
+            <p class="completion-text">Prends une minute pour noter ton ressenti. Ça aide ton coach à adapter la suite.</p>
+            
+            <div id="nutrition-card-slot"></div>
+            <div class="feedback-container">
+                <div class="feedback-item">
+                    <label for="score-muscle">💪 Difficulté Musculaire <span class="score-value" data-for="score-muscle">5</span>/10</label>
+                    <div class="feedback-inputs">
+                        <input type="range" id="score-muscle" class="score-slider" min="0" max="10" value="5" aria-label="Difficulté musculaire de 0 à 10">
+                        <input type="text" id="com-muscle" class="com-input" placeholder="Détails (ex: Cuisses HS...)">
+                    </div>
+                </div>
+                <div class="feedback-item">
+                    <label for="score-cardio">🫀 Difficulté Cardio <span class="score-value" data-for="score-cardio">5</span>/10</label>
+                    <div class="feedback-inputs">
+                        <input type="range" id="score-cardio" class="score-slider" min="0" max="10" value="5" aria-label="Difficulté cardio de 0 à 10">
+                        <input type="text" id="com-cardio" class="com-input" placeholder="Détails...">
+                    </div>
+                </div>
+                <div class="feedback-item">
+                    <label for="score-fatigue">😫 Fatigue après séance <span class="score-value" data-for="score-fatigue">5</span>/10</label>
+                    <div class="feedback-inputs">
+                        <input type="range" id="score-fatigue" class="score-slider" min="0" max="10" value="5" aria-label="Fatigue de 0 à 10">
+                        <input type="text" id="com-fatigue" class="com-input" placeholder="Détails...">
+                    </div>
+                </div>
+                <div class="feedback-item">
+                    <label for="score-sleep">💤 Sommeil (48h) <span class="score-value" data-for="score-sleep">5</span>/10</label>
+                    <div class="feedback-inputs">
+                        <input type="range" id="score-sleep" class="score-slider" min="0" max="10" value="5" aria-label="Qualité du sommeil de 0 à 10">
+                        <input type="text" id="com-sleep" class="com-input" placeholder="Heures, réveils...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="feedback-item coach-note-free-wrap">
+                <label for="coach-note-free">💬 Message pour ton coach (optionnel)</label>
+                <textarea id="coach-note-free" class="com-input coach-note-input" placeholder="Comment tu te sens, questions, remarques..." rows="2"></textarea>
+            </div>
+            <div id="modal-btn-container"></div>
+        </div>
+    </div>
+
+    <div id="settings-overlay" class="settings-overlay" role="dialog" aria-modal="true" aria-labelledby="settings-title" aria-hidden="true">
+        <div class="settings-modal">
+            <span class="close-settings" tabindex="0" role="button" aria-label="Fermer">&times;</span>
+            <h2 id="settings-title" class="settings-title">Paramètres</h2>
+            <div class="settings-item">
+                <label><input type="checkbox" id="setting-sound" checked> Bips sur les 3 dernières secondes du chrono</label>
+            </div>
+            <div class="settings-item">
+                <span class="settings-label">Thème</span>
+                <div class="settings-theme">
+                    <label><input type="radio" name="theme" value="light"> Clair</label>
+                    <label><input type="radio" name="theme" value="dark"> Sombre</label>
+                    <label><input type="radio" name="theme" value="auto"> Auto</label>
+                </div>
+            </div>
+            <div class="settings-item">
+                <button type="button" class="btn-export-data" id="btn-export-data">Exporter mes données</button>
+            </div>
+            <div class="settings-item">
+                <button type="button" class="btn-import-data" id="btn-import-data">Importer une sauvegarde</button>
+                <input type="file" id="input-import-data" accept=".json,application/json" hidden>
+            </div>
+            <div class="settings-item">
+                <button type="button" class="btn-reset-data" id="btn-reset-data">Effacer toutes mes données (ce programme)</button>
+            </div>
+            <div class="settings-item">
+                <label><input type="checkbox" id="setting-notifications"> Rappel « Séance aujourd'hui »</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cohérence Cardiaque (Pause Respiration) -->
+    <div id="breathing-modal-overlay" class="breathing-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="breathing-modal-title" aria-hidden="true">
+        <div class="breathing-modal">
+            <div class="breathing-step breathing-step-intro" id="breathing-step-intro">
+                <h2 id="breathing-modal-title" class="breathing-modal-title">Reconnexion & Calme</h2>
+                <p class="breathing-modal-text">
+                    Inspire 4 secondes, retiens 4 secondes, expire 4 secondes, retiens 4 secondes.
+                    Idéal pour apaiser ton système nerveux.
+                </p>
+                <p class="breathing-modal-instructions">
+                    Trouve une position confortable, un endroit calme et ferme les yeux si tu le souhaites.
+                </p>
+                <button type="button" class="btn-breathing-start" id="btn-breathing-start">Commencer</button>
+            </div>
+            <div class="breathing-step breathing-step-exercise" id="breathing-step-exercise" hidden>
+                <div class="breathing-bubble-wrap">
+                    <div class="breathing-bubble" id="breathing-bubble" aria-hidden="true"></div>
+                </div>
+                <p class="breathing-phase-text" id="breathing-phase-text">Inspire...</p>
+                <p class="breathing-timer" id="breathing-timer" aria-live="polite">5:00</p>
+                <p class="breathing-finish-text" id="breathing-finish-text" hidden>
+                    J'espère que ce moment pour toi t'a aidé à t'apaiser. Je te souhaite une belle journée.
+                </p>
+                <button type="button" class="breathing-close" id="breathing-close">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+    <script src="script.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('./sw.js').catch(function () {});
+        });
+      }
+    </script>
+</body>
+</html>
