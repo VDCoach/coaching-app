@@ -2,7 +2,7 @@
 const COACH_PHONE_NUMBER = "33662110786"; // TON NUMÉRO
 const COACH_NAME = "David";
 const DEFAULT_RECOVERY_VIDEO_URL = null; // Stretching générique 10min
-const APP_VERSION = "2.6";
+const APP_VERSION = "2.7";
 const PAST_DAYS = 1;
 const DAYS_AHEAD = 21;
 
@@ -308,13 +308,9 @@ function showLoadError(message) {
     document.getElementById('calendar-strip').innerHTML = "";
     const wrap = document.getElementById('calendar-wrap');
     if (wrap) wrap.classList.remove('collapsed');
-    document.getElementById('week-context').innerHTML = "";
     document.getElementById('next-session').innerHTML = "";
     const goalEl = document.getElementById('weekly-goal-banner');
     if (goalEl) goalEl.innerHTML = "";
-    const statsEl = document.getElementById('stats-bar');
-    if (statsEl) statsEl.innerHTML = "";
-    document.getElementById('coach-signature').innerHTML = "";
     const pan = document.getElementById('progression-panel');
     if (pan) { pan.innerHTML = ""; pan.hidden = true; }
     const btnProg = document.getElementById('btn-progression-toggle');
@@ -412,11 +408,8 @@ function getStats(sessions) {
 }
 
 function updateWeekAndNextSession(sessions) {
-    const weekEl = document.getElementById('week-context');
     const nextEl = document.getElementById('next-session');
     const goalEl = document.getElementById('weekly-goal-banner');
-    const statsEl = document.getElementById('stats-bar');
-    if (weekEl) weekEl.textContent = getWeekLabel();
     const next = getNextSessionInfo(sessions);
     if (nextEl) {
         if (next) nextEl.innerHTML = `Prochaine séance : <strong>${escapeHtml(next.dayName)} ${escapeHtml(next.dateNum)}</strong> — ${escapeHtml(next.name)}`;
@@ -440,13 +433,6 @@ function updateWeekAndNextSession(sessions) {
         goalEl.innerHTML = `Objectif semaine : ${thisWeekCount}/${goal} séance${goal > 1 ? 's' : ''}`;
         goalEl.classList.add('show');
     } else if (goalEl) goalEl.innerHTML = '';
-    if (statsEl && sessions && sessions.length) {
-        const st = getStats(sessions);
-        let html = `<span>${st.sessionsThisMonth} séance${st.sessionsThisMonth !== 1 ? 's' : ''} ce mois</span>`;
-        if (st.streakWeeks > 0) html += ` · <span>Série : ${st.streakWeeks} sem.</span>`;
-        if (st.nextInDays != null) html += ` · <span>Prochaine dans ${st.nextInDays} j</span>`;
-        statsEl.innerHTML = html;
-    }
 }
 
 // --- CALENDRIER ---
@@ -1306,6 +1292,20 @@ function sliderColorForRatio(ratio) {
     const bch = Math.round(a.b + (b.b - a.b) * t);
     return `rgb(${r}, ${g}, ${bch})`;
 }
+
+function initScoreSliderColors() {
+    document.querySelectorAll('.score-slider').forEach(slider => {
+        const min = parseInt(slider.min, 10);
+        const max = parseInt(slider.max, 10);
+        const val = parseInt(slider.value, 10);
+        const lo = isNaN(min) ? 0 : min;
+        const hi = isNaN(max) || max === lo ? lo + 10 : max;
+        const v = isNaN(val) ? (lo + hi) / 2 : val;
+        const ratio = (v - lo) / (hi - lo || 1);
+        const color = sliderColorForRatio(ratio);
+        slider.style.setProperty('--slider-thumb-color', color);
+    });
+}
 function setCounters(obj) {
     localStorage.setItem(KEY_COUNTERS, JSON.stringify(obj));
 }
@@ -1589,8 +1589,8 @@ function startActiveTimer(btn) {
             // La barre interne passe de bleu foncé à bleu clair en se vidant,
             // mais le fond du bouton (couleur de base) reste inchangé.
             // Barre foncée quand pleine, de plus en plus claire en se vidant
-            const dark = { r: 30, g: 64, b: 175 };   // #1e40af
-            const light = { r: 96, g: 165, b: 250 }; // #60a5fa
+            const dark = { r: 39, g: 71, b: 177 };   //rgb(39, 71, 177)
+            const light = { r: 39, g: 71, b: 177 }; // #60a5fa
             const t = 1 - ratio; // 0 = pleine (foncé), 1 = presque vide (clair)
             const r = Math.round(dark.r + (light.r - dark.r) * t);
             const g = Math.round(dark.g + (light.g - dark.g) * t);
@@ -2411,8 +2411,20 @@ function renderSuiviHeaderBar() {
         else items.push(`<div class="suivi-header-item ${state.class}"><span class="suivi-header-label">${label}</span><div class="suivi-header-track" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><div class="suivi-header-fill" style="width:${pct}%"></div><span class="suivi-header-pct">${pct}%</span></div></div>`);
     };
     if (prefs.show_poids && prefs.objectif_poids != null && lastP != null) {
-        const current = lastP.poids_kg, goal = prefs.objectif_poids, start = firstP ? firstP.poids_kg : current;
-        push(`⚖️ Poids ${current} kg → ${goal} kg`, progressPct(start, current, goal), suiviProgressState(progressPct(start, current, goal)));
+        const current = lastP.poids_kg;
+        const goal = prefs.objectif_poids;
+        let start = current;
+        // Si un poids de base est défini dans la fiche client, on l'utilise comme point de départ
+        const base = globalData && typeof globalData.baseline_weight_kg === 'number'
+            ? globalData.baseline_weight_kg
+            : null;
+        if (base != null && !isNaN(base) && base > 0) {
+            start = base;
+        } else if (firstP && firstP.poids_kg != null) {
+            start = firstP.poids_kg;
+        }
+        const pct = progressPct(start, current, goal);
+        push(`⚖️ Poids ${current} kg → ${goal} kg`, pct, suiviProgressState(pct));
     }
     if (prefs.show_taille && prefs.objectif_taille != null && lastM != null && lastM.tour_taille != null) {
         const current = lastM.tour_taille, goal = prefs.objectif_taille, start = firstM && firstM.tour_taille != null ? firstM.tour_taille : current;
@@ -2684,7 +2696,27 @@ function initInstallPrompt() {
     const btnInstall = document.getElementById('btn-install-app');
     const btnDismiss = document.getElementById('btn-dismiss-install');
     if (!banner || !btnInstall || !btnDismiss) return;
-    if (isInstallDismissed() || window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) return;
+
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+    // Cas iOS : pas de beforeinstallprompt, on affiche une bannière pédagogique spécifique
+    if (isIOS() && !isStandalone && !isInstallDismissed()) {
+        const textSpan = banner.querySelector('.install-banner span:nth-of-type(2)') || banner.querySelector('span:nth-of-type(2)');
+        if (textSpan) {
+            textSpan.innerHTML = `Pour installer sur iPhone : ouvre <strong>Partager</strong> puis choisis <strong>“Sur l'écran d'accueil”</strong>.`;
+        }
+        // On masque le bouton "Installer" impossible à déclencher sur iOS
+        btnInstall.style.display = 'none';
+        btnDismiss.textContent = 'Compris';
+        banner.hidden = false;
+        btnDismiss.addEventListener('click', () => {
+            setInstallDismissed();
+            banner.hidden = true;
+        });
+        return;
+    }
+
+    if (isInstallDismissed() || isStandalone) return;
     window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
         deferredInstallPrompt = e;
@@ -3130,8 +3162,13 @@ function initHeaderMenu() {
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { initDarkMode(); initHeaderMenu(); });
+    document.addEventListener('DOMContentLoaded', () => {
+        initDarkMode();
+        initHeaderMenu();
+        initScoreSliderColors();
+    });
 } else {
     initDarkMode();
     initHeaderMenu();
+    initScoreSliderColors();
 }
