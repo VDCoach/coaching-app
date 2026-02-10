@@ -1556,13 +1556,13 @@ function startActiveTimer(btn) {
             progressEl.style.transform = `scaleX(${ratio})`;
             // La barre interne passe de bleu foncé à bleu clair en se vidant,
             // mais le fond du bouton (couleur de base) reste inchangé.
-            // Inversé : barre foncée au début, plus claire à l’approche de 0
-            const light = { r: 96, g: 165, b: 250 }; // #60a5fa
+            // Barre foncée quand pleine, de plus en plus claire en se vidant
             const dark = { r: 30, g: 64, b: 175 };   // #1e40af
-            const t = 1 - ratio; // 0 = départ (clair), 1 = fin (foncé)
-            const r = Math.round(light.r + (dark.r - light.r) * t);
-            const g = Math.round(light.g + (dark.g - light.g) * t);
-            const b = Math.round(light.b + (dark.b - light.b) * t);
+            const light = { r: 96, g: 165, b: 250 }; // #60a5fa
+            const t = 1 - ratio; // 0 = pleine (foncé), 1 = presque vide (clair)
+            const r = Math.round(dark.r + (light.r - dark.r) * t);
+            const g = Math.round(dark.g + (light.g - dark.g) * t);
+            const b = Math.round(dark.b + (light.b - dark.b) * t);
             progressEl.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
         }
     };
