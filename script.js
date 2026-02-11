@@ -49,7 +49,9 @@ const SUIVI_HISTORY_MAX = 15;
 const SUIVI_HEADER_MAX = 3;
 
 function getSettingSound() { return localStorage.getItem(KEY_SOUND) !== '0'; }
+function getSettingLoudBeep() { return localStorage.getItem('fitapp_loud_beep_' + clientID) === '1'; }
 function setSettingSound(on) { localStorage.setItem(KEY_SOUND, on ? '1' : '0'); }
+function setSettingLoudBeep(on) { localStorage.setItem('fitapp_loud_beep_' + clientID, on ? '1' : '0'); }
 function getSettingTheme() { return localStorage.getItem(KEY_THEME) || 'light'; }
 function setSettingTheme(v) { localStorage.setItem(KEY_THEME, v); }
 function getCoachNote() { return localStorage.getItem(KEY_COACH_NOTE) || ''; }
@@ -1499,13 +1501,16 @@ function playBeep() {
         const gain = ctx.createGain();
         osc.connect(gain);
         gain.connect(ctx.destination);
-        osc.frequency.value = 800;
+        const loud = getSettingLoudBeep();
+        osc.frequency.value = loud ? 950 : 800;
         osc.type = 'sine';
-        // Bip un peu plus fort et légèrement plus long
-        gain.gain.setValueAtTime(0.6, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
+        // Bip normal vs bip plus fort et légèrement plus long
+        const startGain = loud ? 0.9 : 0.6;
+        const duration = loud ? 0.45 : 0.35;
+        gain.gain.setValueAtTime(startGain, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + duration);
         osc.start(ctx.currentTime);
-        osc.stop(ctx.currentTime + 0.35);
+        osc.stop(ctx.currentTime + duration);
     } catch (_) {}
 }
 
@@ -2564,6 +2569,8 @@ function openSettings() {
     overlay.classList.add('active');
     overlay.setAttribute('aria-hidden', 'false');
     document.getElementById('setting-sound').checked = getSettingSound();
+    const loudCheckbox = document.getElementById('setting-sound-loud');
+    if (loudCheckbox) loudCheckbox.checked = getSettingLoudBeep();
     const theme = getSettingTheme();
     document.querySelectorAll('input[name="theme"]').forEach(r => { r.checked = r.value === theme; });
     document.getElementById('setting-notifications').checked = isNotificationEnabled();
@@ -2574,6 +2581,8 @@ function closeSettings() {
     overlay.classList.remove('active');
     overlay.setAttribute('aria-hidden', 'true');
     setSettingSound(document.getElementById('setting-sound').checked);
+    const loudCheckbox = document.getElementById('setting-sound-loud');
+    if (loudCheckbox) setSettingLoudBeep(loudCheckbox.checked);
     const themeRadio = document.querySelector('input[name="theme"]:checked');
     if (themeRadio) {
         setSettingTheme(themeRadio.value);
