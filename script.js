@@ -1024,7 +1024,7 @@ function checkSetAndCollapse(checkbox, cardIndex, setNumber, totalSets) {
             }
         };
         const isWarmupSection = card?.dataset.warmupSection === '1';
-        const scrollDelay = collapseDelay + 250; // on laisse le temps au repli de finir avant de scroller
+        const scrollDelay = collapseDelay + 550; // on laisse le temps au repli de finir avant de scroller
         const showRpe = !isWarmupSection && isLastCardOfSuperset(card);
         if (showRpe) {
             setTimeout(() => {
