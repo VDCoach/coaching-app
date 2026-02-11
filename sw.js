@@ -1,5 +1,5 @@
-// Mettre à jour ce nom à chaque release (ex: v2.7.1) pour invalider l’ancien cache
-const CACHE_NAME = 'coaching-v2.7.1';
+// Mettre à jour ce nom à chaque release (ex: v2.7.2) pour invalider l’ancien cache
+const CACHE_NAME = 'coaching-v2.7.2';
 const ASSETS = [
   './',
   './index.html',
