@@ -221,7 +221,7 @@
           "rpe_target": "8",
           "check_technique": true,
           "superset_type": "start",
-          "note_coach": "Explosif. Utilise les jambes."
+          "note_coach": "Explosif. Utilise les jambes. 6kg par bras. "
         },
         {
           "name": "Rowing Buste penché",
@@ -529,4 +529,5 @@
 
   ]
 }
+
 
