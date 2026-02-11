@@ -1,4 +1,4 @@
-## [v2.7.0] - Supersets, timers & icônes PWA
+## [v2.7.1] - Supersets, timers & icônes PWA
 - **Repos superset :** Dans un superset, seules les dernières séries du **dernier exercice** déclenchent le repos global (60s par défaut). Les exercices intermédiaires déclenchent un repos à `0s`, pour enchaîner sans pause longue.
 - **Affichage repos superset :** Le dernier exercice d’un superset n’est plus estompé (opacity 1) afin que le temps de repos global reste lisible.
 - **Auto-scroll :** Quand tu termines un exercice simple, l’auto‑scroll centre le prochain exercice ; si le suivant est un superset, le scroll aligne le **haut du bloc superset**. Le scroll est déclenché uniquement une fois le repli visuel de l’exercice précédent terminé.
