@@ -330,7 +330,15 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function () {
-          navigator.serviceWorker.register('./sw.js').catch(function () {});
+          navigator.serviceWorker
+            .register('./sw.js')
+            .then(function (reg) {
+              // Force une vérification de mise à jour du SW à chaque chargement
+              if (reg && typeof reg.update === 'function') {
+                reg.update().catch(function () {});
+              }
+            })
+            .catch(function () {});
         });
         // Quand un nouveau Service Worker prend le contrôle, on force un seul refresh
         let swRefreshing = false;
