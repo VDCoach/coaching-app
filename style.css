@@ -1283,6 +1283,13 @@ body.guided-mode .superset-row .exercise-card:not(.superset-current) {
     position: relative;
 }
 
+@media (max-width: 600px) {
+    .set-label {
+        width: 46px;
+        height: 46px;
+    }
+}
+
 /* L'icône SVG (Cachée par défaut), centrée */
 .set-label svg {
     display: none;
