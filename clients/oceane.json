@@ -292,11 +292,11 @@
         { "type": "section", "title": "Renforcement" },
         {
           "name": "Leg Press",
-          "sets": "3",
+          "sets": "4",
           "reps": "12-15",
           "rest": "90s",
           "rpe_target": "8",
-          "charge": ["35", "35", "30", "30"],
+          "charge": "35",
           "check_technique": true,
           "note_coach": "Pieds largeur bassin.",
           
@@ -355,7 +355,7 @@
         {
           "name": "Escalier",
           "sets": "1",
-          "reps": "7min 30sec",
+          "reps": "9min",
           "rest": "0s",
           "rpe_target": "6",
           "check_technique": false,
@@ -458,7 +458,7 @@
         {
           "name": "Escalier",
           "sets": "1",
-          "reps": "8min",
+          "reps": "9min",
           "rest": "0s",
           "rpe_target": "6",
           "check_technique": false,
@@ -477,12 +477,12 @@
         {
           "name": "Escalier",
           "sets": "4",
-          "reps": "8min",
+          "reps": "10min",
           "rest": "60s",
           "rpe_target": "7",
           "check_technique": true,
           "superset_type": "start",
-          "note_coach": " Trouve une vitesse qui te permet de tenir les 8 minutes trois fois, mais n'hésite pas à faire monter le cardio !"
+          "note_coach": " Trouve une vitesse qui te permet de tenir les 10 minutes quatre fois, mais n'hésite pas à faire monter le cardio !"
           
         },
         {
