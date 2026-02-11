@@ -1017,7 +1017,8 @@ function checkSetAndCollapse(checkbox, cardIndex, setNumber, totalSets) {
                 setTimeout(() => {
                     const supersetBlock = nextCard.closest('.superset-block');
                     const scrollTarget = supersetBlock || nextCard;
-                    scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const blockMode = supersetBlock ? 'start' : 'center';
+                    scrollTarget.scrollIntoView({ behavior: 'smooth', block: blockMode });
                 }, 300);
             }
         };
