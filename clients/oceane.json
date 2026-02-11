@@ -232,7 +232,7 @@
           "rpe_target": "7",
           "check_technique": true,
           "superset_type": "middle",
-          "note_coach": "Dos plat, pas de rotation. Rythme soutenu."
+          "note_coach": "Dos bien droit. Rythme soutenu."
         },
         {
           "name": "Squats sautés",
@@ -529,5 +529,6 @@
 
   ]
 }
+
 
 
