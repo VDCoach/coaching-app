@@ -1285,8 +1285,8 @@ body.guided-mode .superset-row .exercise-card:not(.superset-current) {
 
 @media (max-width: 600px) {
     .set-label {
-        width: 46px;
-        height: 46px;
+        width: 66px;
+        height: 66px;
     }
 }
 
