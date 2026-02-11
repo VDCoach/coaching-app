@@ -224,9 +224,9 @@
           "note_coach": "Explosif. Utilise les jambes."
         },
         {
-          "name": "Rowing Bûcheron",
+          "name": "Rowing Buste penché",
           "sets": "4",
-          "reps": "14/bras",
+          "reps": "14",
           "rest": "0s",
 		  "charge": "6",
           "rpe_target": "7",
@@ -252,7 +252,7 @@
           "rpe_target": "8-9",
           "check_technique": false,
           "superset_type": "end",
-          "note_coach": "Intensité maximale. Vide le réservoir."
+          "note_coach": "Intensité maximale. Vide le réservoir. Les éppaules bien au dessus des mains !"
         },
         {
           "type": "section",
@@ -529,3 +529,4 @@
 
   ]
 }
+
