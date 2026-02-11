@@ -980,21 +980,24 @@ function checkSetAndCollapse(checkbox, cardIndex, setNumber, totalSets) {
         const card = document.getElementById(`card-${cardIndex}`);
         const supersetBlock = card ? card.closest('.superset-block') : null;
         const inSuperset = !!supersetBlock;
+        let collapseDelay = 0;
 
         if (!inSuperset && card && card.classList.contains('open')) {
+            collapseDelay = 300;
             setTimeout(() => { 
                 const header = card.querySelector('.exercise-header');
-                if(header) toggleCard(header); 
-            }, 300);
+                if (header) toggleCard(header); 
+            }, collapseDelay);
         } else if (inSuperset && supersetBlock) {
             const allDone = (() => {
                 const cbs = Array.from(supersetBlock.querySelectorAll('.set-checkbox'));
                 return cbs.length > 0 && cbs.every(cb => cb.checked);
             })();
             if (allDone) {
+                collapseDelay = 500;
                 setTimeout(() => {
                     supersetBlock.querySelectorAll('.exercise-card.open .exercise-header').forEach(h => toggleCard(h));
-                }, 500);
+                }, collapseDelay);
             }
         }
         const exoName = card?.querySelector('.exercise-title')?.textContent?.trim() || 'Exercice';
@@ -1014,22 +1017,21 @@ function checkSetAndCollapse(checkbox, cardIndex, setNumber, totalSets) {
                 return;
             }
             if (nextCard) {
-                setTimeout(() => {
-                    const supersetBlock = nextCard.closest('.superset-block');
-                    const scrollTarget = supersetBlock || nextCard;
-                    const blockMode = supersetBlock ? 'start' : 'center';
-                    scrollTarget.scrollIntoView({ behavior: 'smooth', block: blockMode });
-                }, 300);
+                const supersetBlock = nextCard.closest('.superset-block');
+                const scrollTarget = supersetBlock || nextCard;
+                const blockMode = supersetBlock ? 'start' : 'center';
+                scrollTarget.scrollIntoView({ behavior: 'smooth', block: blockMode });
             }
         };
         const isWarmupSection = card?.dataset.warmupSection === '1';
+        const scrollDelay = collapseDelay + 250; // on laisse le temps au repli de finir avant de scroller
         const showRpe = !isWarmupSection && isLastCardOfSuperset(card);
         if (showRpe) {
             setTimeout(() => {
                 showRpeModal(cardIndex, currentSessionId, exoName, doScroll);
-            }, 400);
+            }, scrollDelay);
         } else {
-            setTimeout(doScroll, 400);
+            setTimeout(doScroll, scrollDelay);
         }
     }
 }
