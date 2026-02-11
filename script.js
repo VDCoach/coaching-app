@@ -919,6 +919,7 @@ function updateSupersetHighlight(shouldScrollToCurrent) {
             if (currentCard) {
                 currentCard.classList.add('superset-current');
                 if (shouldScrollToCurrent && totalChecked >= 1) {
+                    // À l'intérieur d'un superset, on garde un scroll centré pour bien voir l'exercice courant.
                     currentCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
                 // En mode Focus, aligner la carte guidée sur l'exercice courant du superset
@@ -1016,7 +1017,7 @@ function checkSetAndCollapse(checkbox, cardIndex, setNumber, totalSets) {
                 setTimeout(() => {
                     const supersetBlock = nextCard.closest('.superset-block');
                     const scrollTarget = supersetBlock || nextCard;
-                    scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 300);
             }
         };
