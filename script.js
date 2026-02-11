@@ -861,6 +861,8 @@ function updateExerciseDetails(card) {
     const serieNum = grid.querySelector('.detail-serie-num');
     const repsEl = grid.querySelector('.detail-reps');
     const restEl = grid.querySelector('.detail-rest');
+    const inSuperset = !!card.closest('.superset-block');
+    const isLastInSuperset = card ? isLastCardOfSuperset(card) : true;
     if (serieNum) serieNum.textContent = currentSetIndex < total ? `${currentSetIndex + 1}/${total}` : `${total}/${total}`;
     if (currentSetIndex >= total && repsEl) repsEl.textContent = isFailure ? "Jusqu'à échec" : '-';
     else if (repsEl && repsData) {
@@ -870,8 +872,18 @@ function updateExerciseDetails(card) {
         } catch (_) { repsEl.textContent = '-'; }
     }
     let restDisplay = '60s';
-    if (currentSetIndex >= total) { if (restEl) restEl.textContent = '-'; }
-    else if (restData) {
+    if (currentSetIndex >= total) {
+        if (restEl) {
+            if (inSuperset && !isLastInSuperset) {
+                // Dans un superset, les exercices intermédiaires n'ajoutent pas de repos "global" : on force 0s.
+                restDisplay = '0s';
+                restEl.textContent = restDisplay;
+            } else {
+                // Exercice simple ou dernier exercice du superset : on garde l'affichage neutre.
+                restEl.textContent = '-';
+            }
+        }
+    } else if (restData) {
         try {
             const arr = JSON.parse(restData);
             restDisplay = arr[currentSetIndex] || arr[arr.length - 1] || '60s';
