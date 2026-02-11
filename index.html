@@ -332,6 +332,13 @@
         window.addEventListener('load', function () {
           navigator.serviceWorker.register('./sw.js').catch(function () {});
         });
+        // Quand un nouveau Service Worker prend le contrôle, on force un seul refresh
+        let swRefreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', function () {
+          if (swRefreshing) return;
+          swRefreshing = true;
+          window.location.reload();
+        });
       }
     </script>
 </body>
