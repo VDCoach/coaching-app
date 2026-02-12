@@ -1474,9 +1474,8 @@ body.guided-mode .superset-row .exercise-card:not(.superset-current) {
     width: 100%;
 }
 .charge-input-row input {
-    flex: 0 0 2.8rem;
-    width: 2.8rem;
-    min-width: 2.8rem;
+    flex: 1;
+    min-width: 3.5rem;
     text-align: center;
 }
 .charge-suffix { font-size: 0.8rem; font-weight: 600; color: var(--primary); flex-shrink: 0; }
@@ -1510,8 +1509,8 @@ body.guided-mode .superset-row .exercise-card:not(.superset-current) {
     width: 100%;
 }
 .charge-set-wrap input {
-    width: 2.8rem;
-    min-width: 2.8rem;
+    flex: 1;
+    min-width: 3.5rem;
     text-align: center;
 }
 .charge-set-label { font-size: 0.7rem; font-weight: 600; color: var(--primary-dark); min-width: 1.4rem; }
