@@ -27,6 +27,25 @@ let sessionEndTime = null;
 let moveSessionMode = false;
 let moveSessionSourceId = null;
 let moveSessionSourceIndex = -1;
+// Flags en mémoire pour ne pas spammer la bannière d'encouragement
+let encouragementShown75 = false;
+
+// Petits messages d'encouragement possibles (un sera choisi au hasard)
+const ENCOURAGEMENT_MESSAGES = [
+    "Tu es quasiment au bout, reste dans le mouvement.",
+    "Belle constance, termine cette séance comme tu l’as commencée.",
+    "Encore quelques séries et tu valides une vraie victoire.",
+    "Reste focus sur tes répétitions, tout compte.",
+    "Tu construis des habitudes solides à chaque série que tu termines."
+];
+
+function getRandomEncouragementMessage() {
+    if (!Array.isArray(ENCOURAGEMENT_MESSAGES) || ENCOURAGEMENT_MESSAGES.length === 0) {
+        return "Tu es quasiment au bout, reste dans le mouvement.";
+    }
+    const index = Math.floor(Math.random() * ENCOURAGEMENT_MESSAGES.length);
+    return ENCOURAGEMENT_MESSAGES[index];
+}
 
 // --- PARAMÈTRES (localStorage) ---
 const KEY_SOUND = 'fitapp_sound_' + clientID;
@@ -813,8 +832,8 @@ function createExerciseCard(exo, index, sessionId, supersetRoleNum, isWarmupExer
                     </button>
                     ${activeTimerHtml}
                 </div>
-                ${checkboxesHtml}
                 ${exo.note_coach ? `<div class="coach-note">"${escapeHtml(exo.note_coach)}"</div>` : ''}
+                ${checkboxesHtml}
                 <div class="client-input-zone">
                     <div class="input-row">
                         ${chargePerSet
@@ -949,7 +968,7 @@ function updateSupersetHighlight(shouldScrollToCurrent) {
 
 function checkSetAndCollapse(checkbox, cardIndex, setNumber, totalSets) {
     if (sessionStartTime === null) sessionStartTime = Date.now();
-    updateProgress(true); 
+    updateProgress(); 
     saveData(); 
     updateSupersetHighlight(true);
     if (checkbox.checked) {
@@ -1003,6 +1022,11 @@ function checkSetAndCollapse(checkbox, cardIndex, setNumber, totalSets) {
             }
         }
         const exoName = card?.querySelector('.exercise-title')?.textContent?.trim() || 'Exercice';
+        const allSetsDoneGlobally = (() => {
+            const all = document.querySelectorAll('.set-checkbox');
+            const checkedAll = document.querySelectorAll('.set-checkbox:checked');
+            return all.length > 0 && checkedAll.length === all.length;
+        })();
         const doScroll = () => {
             if (!card) return;
             const shouldScroll = isLastCardOfSuperset(card);
@@ -1030,10 +1054,23 @@ function checkSetAndCollapse(checkbox, cardIndex, setNumber, totalSets) {
         const showRpe = !isWarmupSection && isLastCardOfSuperset(card);
         if (showRpe) {
             setTimeout(() => {
-                showRpeModal(cardIndex, currentSessionId, exoName, doScroll);
+                const onConfirm = () => {
+                    doScroll();
+                    if (allSetsDoneGlobally) {
+                        saveChargeHistory();
+                        showMilestoneModalIfNeeded(openCompletionOverlay);
+                    }
+                };
+                showRpeModal(cardIndex, currentSessionId, exoName, onConfirm);
             }, scrollDelay);
         } else {
-            setTimeout(doScroll, scrollDelay);
+            setTimeout(() => {
+                doScroll();
+                if (allSetsDoneGlobally) {
+                    saveChargeHistory();
+                    showMilestoneModalIfNeeded(openCompletionOverlay);
+                }
+            }, scrollDelay);
         }
     }
 }
@@ -1171,17 +1208,21 @@ function openCompletionOverlay() {
     document.addEventListener('keydown', handleModalEscape);
 }
 
-function updateProgress(shouldOpenModal = false) {
+function updateProgress() {
     const total = document.querySelectorAll('.set-checkbox').length;
     const checked = document.querySelectorAll('.set-checkbox:checked').length;
     const percent = (total === 0) ? 0 : (checked / total) * 100;
     
     document.getElementById('progress-bar').style.width = percent + "%";
 
-    if (percent === 100 && shouldOpenModal) {
-        saveChargeHistory();
-        showMilestoneModalIfNeeded(openCompletionOverlay);
+    // Micro encouragement visuel unique en fin de séance, sans interaction
+    if (percent >= 80 && percent < 100 && !encouragementShown75) {
+        encouragementShown75 = true;
+        showEncouragementBanner(getRandomEncouragementMessage());
     }
+
+    // La logique d'ouverture de la modale de fin est gérée
+    // dans checkSetAndCollapse, pour pouvoir attendre le dernier RPE.
 }
 
 function saveData() {
@@ -1528,6 +1569,25 @@ function fireConfetti() {
         container.appendChild(el);
         setTimeout(() => el.remove(), 3500);
     }
+}
+
+// Bannière discrète qui descend du haut de l'écran puis disparaît seule
+function showEncouragementBanner(message) {
+    const el = document.getElementById('encouragement-banner');
+    if (!el) return;
+    el.textContent = message || '';
+
+    // Annuler un éventuel timer précédent
+    if (el.dataset.hideTimeoutId) {
+        clearTimeout(parseInt(el.dataset.hideTimeoutId, 10));
+    }
+
+    el.classList.add('show');
+    const timeoutId = setTimeout(() => {
+        el.classList.remove('show');
+        el.dataset.hideTimeoutId = '';
+    }, 3500);
+    el.dataset.hideTimeoutId = String(timeoutId);
 }
 
 function startTimer(btn, seconds) {
