@@ -2,7 +2,7 @@
 const COACH_PHONE_NUMBER = "33662110786"; // TON NUMÉRO
 const COACH_NAME = "David";
 const DEFAULT_RECOVERY_VIDEO_URL = null; // Stretching générique 10min
-const APP_VERSION = "1.0.1";
+const APP_VERSION = "1.0.0";
 const PAST_DAYS = 1;
 const DAYS_AHEAD = 21;
 
@@ -420,7 +420,7 @@ function getStats(sessions) {
     const todayKey = new Date();
     todayKey.setDate(todayKey.getDate() - todayKey.getDay());
     const thisWeekKey = todayKey.toISOString().slice(0, 10);
-    for (let i = weekKeys.indexOf(thisWeekKey) >= 0 ? weekKeys.indexOf(thisWeekKey) : weekKeys.length; i--;) {
+    for (let i = weekKeys.indexOf(thisWeekKey) >= 0 ? weekKeys.indexOf(thisWeekKey) : weekKeys.length; i--; ) {
         if (completedByWeek[weekKeys[i]] > 0) streakWeeks++;
         else break;
     }
@@ -441,7 +441,7 @@ function updateWeekAndNextSession(sessions) {
         const now = new Date();
         const weekStart = new Date(now);
         weekStart.setDate(now.getDate() - now.getDay());
-        weekStart.setHours(0, 0, 0, 0);
+        weekStart.setHours(0,0,0,0);
         const weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
         let thisWeekCount = 0;
         completed.forEach(e => {
@@ -753,7 +753,7 @@ function createExerciseCard(exo, index, sessionId, supersetRoleNum, isWarmupExer
     checkboxesHtml += '</div>';
 
     const idRpe = `rpe-${sessionId}-${index}`;
-    const idCom = `comment-${sessionId}-${index}`;
+        const idCom = `comment-${sessionId}-${index}`;
 
     const repsDisplayInit = (exo.until_failure || exo.failure) ? 'Jusqu\'à échec' : (repsArr && repsArr[0] ? repsArr[0] : (exo.reps || '-'));
     const restDisplayInit = restArr && restArr[0] ? restArr[0] : (exo.rest || '60s');
@@ -837,24 +837,24 @@ function createExerciseCard(exo, index, sessionId, supersetRoleNum, isWarmupExer
                 <div class="client-input-zone">
                     <div class="input-row">
                         ${chargePerSet
-            ? `<span class="input-with-btn charge-input-wrap charge-input-per-set">
+                            ? `<span class="input-with-btn charge-input-wrap charge-input-per-set">
                                 <span class="charge-input-label">Charge par série (kg)</span>
                                 <span class="charge-input-row charge-inputs-row">
                                     ${Array.from({ length: setsCount }, (_, i) => {
-                const setId = i + 1;
-                const id = `charge-${sessionId}-${index}-${setId}`;
-                const val = (chargeArr[i] != null ? chargeArr[i] : '').replace(/"/g, '&quot;');
-                return `<span class="charge-set-wrap">
+                                        const setId = i + 1;
+                                        const id = `charge-${sessionId}-${index}-${setId}`;
+                                        const val = (chargeArr[i] != null ? chargeArr[i] : '').replace(/"/g, '&quot;');
+                                        return `<span class="charge-set-wrap">
                                             <button type="button" class="charge-step-btn charge-step-btn-dec" data-target-id="${id}" data-step="-1" aria-label="Retirer 1 kg à la série ${setId}">−1</button>
                                             <label for="${id}" class="charge-set-label">S${setId}</label>
                                             <input type="text" id="${id}" placeholder="—" value="${val}" aria-label="Charge série ${setId} en kg">
                                             <span class="charge-suffix">kg</span>
                                             <button type="button" class="charge-step-btn charge-step-btn-inc" data-target-id="${id}" data-step="1" aria-label="Ajouter 1 kg à la série ${setId}">+1</button>
                                         </span>`;
-            }).join('')}
+                                    }).join('')}
                                 </span>
                             </span>`
-            : `<span class="input-with-btn charge-input-wrap">
+                            : `<span class="input-with-btn charge-input-wrap">
                                 <label for="${idCharge}" class="charge-input-label">Charge (kg)</label>
                                 <span class="charge-input-row">
                                     <button type="button" class="charge-step-btn charge-step-btn-dec" data-target-id="${idCharge}" data-step="-1" aria-label="Retirer 1 kg">−1</button>
@@ -863,7 +863,7 @@ function createExerciseCard(exo, index, sessionId, supersetRoleNum, isWarmupExer
                                     <button type="button" class="charge-step-btn charge-step-btn-inc" data-target-id="${idCharge}" data-step="1" aria-label="Ajouter 1 kg">+1</button>
                                 </span>
                             </span>`
-        }
+                        }
                         <input type="hidden" id="${idRpe}" data-rpe-value="">
                     </div>
                     <input type="text" id="${idCom}" placeholder="Note..." aria-label="Note personnelle">
@@ -976,8 +976,8 @@ function updateSupersetHighlight(shouldScrollToCurrent) {
 
 function checkSetAndCollapse(checkbox, cardIndex, setNumber, totalSets) {
     if (sessionStartTime === null) sessionStartTime = Date.now();
-    updateProgress();
-    saveData();
+    updateProgress(); 
+    saveData(); 
     updateSupersetHighlight(true);
     if (checkbox.checked) {
         const card = document.getElementById(`card-${cardIndex}`);
@@ -1013,9 +1013,9 @@ function checkSetAndCollapse(checkbox, cardIndex, setNumber, totalSets) {
 
         if (!inSuperset && card && card.classList.contains('open')) {
             collapseDelay = 300;
-            setTimeout(() => {
+            setTimeout(() => { 
                 const header = card.querySelector('.exercise-header');
-                if (header) toggleCard(header);
+                if (header) toggleCard(header); 
             }, collapseDelay);
         } else if (inSuperset && supersetBlock) {
             const allDone = (() => {
@@ -1212,7 +1212,6 @@ function openCompletionOverlay() {
     if (whatsappBtn) document.getElementById('modal-btn-container').appendChild(whatsappBtn);
     if ("vibrate" in navigator) navigator.vibrate([100, 50, 100]);
     loadCoachNoteIntoModal();
-    openEngagementStep(); // Engagement Contract Hook
     setupModalFocusTrap();
     document.addEventListener('keydown', handleModalEscape);
 }
@@ -1221,7 +1220,7 @@ function updateProgress() {
     const total = document.querySelectorAll('.set-checkbox').length;
     const checked = document.querySelectorAll('.set-checkbox:checked').length;
     const percent = (total === 0) ? 0 : (checked / total) * 100;
-
+    
     document.getElementById('progress-bar').style.width = percent + "%";
 
     // Micro encouragement visuel unique en fin de séance, sans interaction
@@ -1237,7 +1236,7 @@ function updateProgress() {
 function saveData() {
     const dataToSave = {};
     document.querySelectorAll('input[type="text"], input[type="number"]').forEach(input => {
-        if (input.id && !input.id.startsWith('score-') && !input.id.startsWith('com-')) {
+        if(input.id && !input.id.startsWith('score-') && !input.id.startsWith('com-')) {
             dataToSave[input.id] = input.value;
         }
     });
@@ -1533,7 +1532,7 @@ function loadProgress() {
     const saved = localStorage.getItem('fitapp_' + clientID);
     if (!saved) return;
     const data = JSON.parse(saved);
-
+    
     for (const [id, value] of Object.entries(data)) {
         const el = document.getElementById(id);
         if (el && el.type !== 'checkbox') {
@@ -1561,7 +1560,7 @@ function playBeep() {
         gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + duration);
         osc.start(ctx.currentTime);
         osc.stop(ctx.currentTime + duration);
-    } catch (_) { }
+    } catch (_) {}
 }
 
 function fireConfetti() {
@@ -2780,7 +2779,7 @@ function importClientData(data) {
             try {
                 localStorage.setItem(k, data[k]);
             } catch (_) { /* quota or other */ }
-        }
+            }
     });
 }
 
@@ -2883,7 +2882,7 @@ function maybeShowNotification(sessions) {
         try {
             new Notification('Mon Programme Coaching', { body: 'Séance prévue aujourd\'hui ! 💪', icon: 'favicon.svg' });
             setLastNotifDate(todayStr);
-        } catch (_) { }
+        } catch (_) {}
         return;
     }
     if (Notification.permission === 'default') {
@@ -2892,7 +2891,7 @@ function maybeShowNotification(sessions) {
                 try {
                     new Notification('Mon Programme Coaching', { body: 'Séance prévue aujourd\'hui ! 💪', icon: 'favicon.svg' });
                     setLastNotifDate(todayStr);
-                } catch (_) { }
+                } catch (_) {}
             }
         });
     }
@@ -2930,7 +2929,7 @@ const BREATHING_PHASE_DURATION_MS = 4000;
 const BREATHING_PHASES = [
     { label: 'Inspire...', scale: 1.6, beepType: 'normal' },
     { label: 'Retiens...', scale: 1.6, beepType: 'hold' },
-    { label: 'Expire...', scale: 0.8, beepType: 'normal' },
+    { label: 'Expire...',  scale: 0.8, beepType: 'normal' },
     { label: 'Retiens...', scale: 0.8, beepType: 'hold' },
 ];
 let breathingPhaseIndex = 0;
@@ -3277,176 +3276,9 @@ if (document.readyState === 'loading') {
         initDarkMode();
         initHeaderMenu();
         initScoreSliderColors();
-        initEngagementContract();
-        checkEngagementStatus();
     });
 } else {
     initDarkMode();
     initHeaderMenu();
     initScoreSliderColors();
-    initEngagementContract();
-    checkEngagementStatus();
-}
-
-/* --- CONTRAT D'ENGAGEMENT LOGIC --- */
-const KEY_ENGAGEMENT = 'fitapp_engagement_' + clientID;
-// const KEY_SESSION_DATE_OVERRIDES (already defined at top)
-
-function initEngagementContract() {
-    const btnConfirm = document.getElementById('btn-engagement-confirm');
-    const btnMove = document.getElementById('btn-engagement-move');
-    const btnSaveMove = document.getElementById('btn-engagement-save-move');
-    const btnCancelMove = document.getElementById('btn-engagement-cancel-move');
-
-    if (btnConfirm) btnConfirm.addEventListener('click', handleEngagementConfirm);
-    if (btnMove) btnMove.addEventListener('click', () => {
-        document.getElementById('engagement-actions-step1').hidden = true;
-        document.getElementById('engagement-move-ui').hidden = false;
-        const dateInput = document.getElementById('engagement-date-picker');
-        if (dateInput && !dateInput.value) {
-            const tomorrow = new Date();
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            dateInput.value = tomorrow.toISOString().slice(0, 10);
-        }
-    });
-    if (btnCancelMove) btnCancelMove.addEventListener('click', () => {
-        document.getElementById('engagement-move-ui').hidden = true;
-        document.getElementById('engagement-actions-step1').hidden = false;
-    });
-    if (btnSaveMove) btnSaveMove.addEventListener('click', handleEngagementSaveMove);
-}
-
-function openEngagementStep() {
-    const section = document.getElementById('engagement-contract');
-    if (!section) return;
-
-    document.getElementById('engagement-actions-step1').hidden = false;
-    document.getElementById('engagement-move-ui').hidden = true;
-    document.getElementById('engagement-feedback').hidden = true;
-    section.hidden = true;
-
-    // Pour obtenir la prochaine séance, on doit impérativement avoir accès à globalData
-    // Si globalData n'est pas chargé, on retry un peu plus tard ou on échoue silencieusement.
-    if (!globalData || !globalData.sessions) {
-        setTimeout(openEngagementStep, 500); // Retry simple
-        return;
-    }
-
-    const nextSession = getNextSession();
-    if (!nextSession) return;
-
-    const dateStr = nextSession.date;
-    const name = nextSession.name || 'Prochaine séance';
-
-    const dateObj = new Date(dateStr + 'T12:00:00');
-    const dayName = dateObj.toLocaleDateString('fr-FR', { weekday: 'long' });
-    const dayNum = dateObj.getDate();
-    const month = dateObj.toLocaleDateString('fr-FR', { month: 'short' });
-
-    const displayDate = `${dayName} ${dayNum} ${month}`;
-    const textEl = document.getElementById('engagement-text');
-
-    const capFirst = (s) => s.charAt(0).toUpperCase() + s.slice(1);
-    textEl.innerHTML = `Ta prochaine séance <strong>${escapeHtml(name)}</strong> est prévue le <strong>${capFirst(displayDate)}</strong>.`;
-
-    section.dataset.targetDate = dateStr;
-    section.dataset.targetName = name;
-    section.hidden = false;
-}
-
-function handleEngagementConfirm() {
-    const section = document.getElementById('engagement-contract');
-    const date = section.dataset.targetDate;
-    const name = section.dataset.targetName;
-    saveEngagement(date, name);
-    showEngagementFeedback();
-}
-
-function handleEngagementSaveMove() {
-    const dateInput = document.getElementById('engagement-date-picker');
-    const newDate = dateInput.value;
-    if (!newDate) return;
-
-    const nextSession = getNextSession();
-    if (nextSession) {
-        addSessionDateOverride(nextSession.id, newDate);
-        // Force refresh is tricky without reload, but we can update UI locally if needed
-    }
-
-    const section = document.getElementById('engagement-contract');
-    const name = section.dataset.targetName || 'Séance';
-    saveEngagement(newDate, name);
-    showEngagementFeedback();
-}
-
-function showEngagementFeedback() {
-    document.getElementById('engagement-actions-step1').hidden = true;
-    document.getElementById('engagement-move-ui').hidden = true;
-    document.getElementById('engagement-feedback').hidden = false;
-    if ("vibrate" in navigator) navigator.vibrate([50, 50, 50]);
-    fireConfetti();
-}
-
-function saveEngagement(date, sessionName) {
-    const data = {
-        date: date,
-        sessionName: sessionName,
-        madeAt: new Date().toISOString(),
-        status: 'pending'
-    };
-    localStorage.setItem(KEY_ENGAGEMENT, JSON.stringify(data));
-    showToast(`Rendez-vous pris pour le ${formatDateRelative(date)} ! 🔥`);
-    checkEngagementStatus();
-}
-
-function getNextSession() {
-    if (!globalData || !globalData.sessions) return null;
-    const today = new Date().toISOString().slice(0, 10);
-
-    const sessionsWithDates = globalData.sessions.map((s, i) => {
-        const id = s.id || `session_${i}`;
-        const date = getSessionEffectiveDate(s, i);
-        return { ...s, id, effectiveDate: date, index: i };
-    });
-
-    sessionsWithDates.sort((a, b) => a.effectiveDate.localeCompare(b.effectiveDate));
-
-    const cand = sessionsWithDates.find(s => {
-        if (s.id === currentSessionId) return false;
-        if (isSessionCompleted(s.id, s.effectiveDate)) return false;
-        return true;
-    });
-
-    if (cand) return { id: cand.id, date: cand.effectiveDate, name: cand.name };
-    return null;
-}
-
-function getSessionEffectiveDate(session, index) {
-    const overrides = getSessionDateOverrides();
-    const id = session.id || `session_${index}`;
-    if (overrides[id]) return overrides[id];
-    return session.date;
-}
-
-function getSessionDateOverrides() {
-    try {
-        return JSON.parse(localStorage.getItem(KEY_SESSION_DATE_OVERRIDES) || '{}');
-    } catch { return {}; }
-}
-function addSessionDateOverride(id, newDate) {
-    const ov = getSessionDateOverrides();
-    ov[id] = newDate;
-    localStorage.setItem(KEY_SESSION_DATE_OVERRIDES, JSON.stringify(ov));
-}
-
-function checkEngagementStatus() {
-    const raw = localStorage.getItem(KEY_ENGAGEMENT);
-    if (!raw) return;
-    const eng = JSON.parse(raw);
-    const today = new Date().toISOString().slice(0, 10);
-
-    if (eng.date === today && !sessionStorage.getItem('eng_reminded')) {
-        showToast(`🔥 C'est le jour J pour "${eng.sessionName}" !`);
-        sessionStorage.setItem('eng_reminded', '1');
-    }
 }
