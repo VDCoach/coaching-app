@@ -2577,3 +2577,126 @@ button:focus-visible, .close-modal:focus-visible { outline: 2px solid var(--prim
     .coach-signature { padding: 16px; font-size: 0.7rem; }
     main { max-width: 100%; }
 }
+
+/* --- CONTRAT D'ENGAGEMENT (GAMIFICATION) --- */
+.engagement-contract {
+    background: #fdf2f4; /* Très léger rose pour distinguer */
+    border: 1px solid rgba(183, 110, 121, 0.2);
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 22px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(183, 110, 121, 0.08);
+    animation: fadeIn 0.4s ease;
+}
+.engagement-title {
+    font-size: 1.1rem;
+    color: var(--primary-dark);
+    margin: 0 0 8px 0;
+    font-weight: 700;
+}
+.engagement-text {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    margin: 0 0 16px 0;
+}
+.engagement-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+.btn-engagement-confirm, .btn-engagement-move, .btn-engagement-save-move, .btn-engagement-cancel-move {
+    padding: 10px 18px;
+    border-radius: 50px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-engagement-confirm {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(183, 110, 121, 0.25);
+}
+.btn-engagement-confirm:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(183, 110, 121, 0.35);
+}
+.btn-engagement-move {
+    background: #fff;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+.btn-engagement-move:hover {
+    background: #fff0f0;
+}
+.engagement-move-ui {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: fadeIn 0.3s ease;
+    margin-top: 10px;
+}
+.engagement-label {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+.engagement-date-input {
+    padding: 8px 12px;
+    border: 1px solid rgba(183, 110, 121, 0.3);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-main);
+    background: #fff;
+}
+.engagement-move-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+.btn-engagement-save-move {
+    background: var(--primary-dark);
+    color: white;
+}
+.btn-engagement-cancel-move {
+    background: transparent;
+    color: var(--text-light);
+    border: 1px solid transparent;
+}
+.btn-engagement-cancel-move:hover {
+    text-decoration: underline;
+}
+.engagement-feedback {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2e7d32; /* Vert succès */
+    margin: 10px 0 0 0;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+[data-theme="dark"] .engagement-contract {
+    background: rgba(183, 110, 121, 0.08);
+    border-color: rgba(183, 110, 121, 0.3);
+}
+[data-theme="dark"] .engagement-text {
+    color: #e0e0e0;
+}
+[data-theme="dark"] .btn-engagement-move {
+    background: transparent;
+    color: var(--primary);
+}
+[data-theme="dark"] .engagement-date-input {
+    background: #2d2d2d;
+    color: #fff;
+    border-color: #555;
+    color-scheme: dark;
+}
