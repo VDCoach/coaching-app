@@ -449,11 +449,12 @@
           "reps": "1 min",
           "rest": "0s",
           "rpe_target": "3",
-          "charge": "Résistance résistance faible",
+          "charge": "Résistance faible",
           "check_technique": false,
           "superset_type": "end",
           "note_coach": " C'est la minute où tu récupères, vas-y vraiment tranquillement mais continue bien de pédaler, ça fait circuler le sang dans tes cuisses et permet de mieux performer sur la haute intensité !."
         },
+        {
           "type": "section",
           "title": "Bloc 3 : Isolation Moyens Fessiers"
         },
