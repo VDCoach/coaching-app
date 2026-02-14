@@ -7,7 +7,7 @@
   "sessions": [
     {
       "id": "s_2jambes",
-      "date": "2026-02-18",
+      "date": "2026-02-20",
       "name": "Hypertrophie: Courbes & Galbe",
       "session_intro": "Séance axée renforcement musculaire !",
       "nutrition_tip": "Pour la perte de poids, ne néglige pas les protéines pendant tes repas, c'est bon pour la satiété et la construction des muscles. Assure toi d'avoir au moins 110gr de protéines par jour",
@@ -190,7 +190,7 @@
     },
     {
       "id": "s_1",
-      "date": "2026-02-25",
+      "date": "2026-02-26",
       "name": "Cardio / Renfo : Objectif dépense calorique",
       "session_intro": " Séance hybride entre renfo et cardio ! ",
       "nutrition_tip": "",
