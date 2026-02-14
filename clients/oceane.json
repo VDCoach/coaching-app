@@ -7,7 +7,7 @@
   "sessions": [
     {
       "id": "s_2jambes",
-      "date": "2026-02-14",
+      "date": "2026-02-16",
       "name": "Hypertrophie: Courbes & Galbe",
       "session_intro": "Séance axée renforcement musculaire !",
       "nutrition_tip": "Pour la perte de poids, ne néglige pas les protéines pendant tes repas, c'est bon pour la satiété et la construction des muscles. Assure toi d'avoir au moins 110gr de protéines par jour",
@@ -268,6 +268,116 @@
           "note_coach": "Si tu as encore de l'energie, profite-en. Rythme moyen, tu dois être essouflé mais pouvoir tenir à peu près une conversation."
         }
         
+      ]
+    },
+    {
+      "id": "s_7",
+      "date": "2026-02-14",
+      "name": "Circuit Cardio & gainage",
+      "session_intro": "Séance basique et efficace sans matériel !",
+      "nutrition_tip": "Même sans charge lourde, tes muscles travaillent dur. Garde une bonne portion de protéines sur ton prochain repas pour bien récupérer.",
+      "exercises": [
+        {
+          "type": "section",
+          "title": "Échauffement"
+        },
+        {
+          "name": "Mobilité articulaire + 10 squats lents + 20 Jumping Jacks légers",
+          "sets": "2",
+          "reps": "Circuit",
+          "rest": "0s",
+          "rpe_target": "3",
+          "check_technique": false,
+          "note_coach": "Prends le temps de bien réveiller tes articulations (poignets, genoux, chevilles) avant d'attaquer les sauts."
+        },
+        {
+          "type": "section",
+          "title": "Circuit 1 : Full Body & Cardio (4 Tours)"
+        },
+        {
+          "name": "Squats sautés",
+          "sets": "4",
+          "reps": "20",
+          "rest": "0s",
+          "rpe_target": "8",
+          "charge": "Poids du corps",
+          "check_technique": true,
+          "superset_type": "start",
+          "note_coach": "Amorti bien la descente, garde le dos droit. Si le cardio monte trop ou que les genoux tirent, passe en squats classiques."
+        },
+        {
+          "name": "Pompes sur les genoux",
+          "sets": "4",
+          "reps": "10-12",
+          "rest": "0s",
+          "rpe_target": "7",
+          "charge": "Poids du corps",
+          "check_technique": true,
+          "superset_type": "middle",
+          "note_coach": "Garde les coudespas trop loin du corps, aligne bien ton bassin avec tes épaules (pas de fesses en l'air)."
+        },
+        {
+          "name": "Jumping Jacks",
+          "sets": "4",
+          "reps": "60s",
+          "rest": "60s",
+          "rpe_target": "8",
+          "charge": "Poids du corps",
+          "check_technique": false,
+          "superset_type": "end",
+          "note_coach": "Mets du rythme ! Prends 1min de repos complet à la fin de cet exercice avant de repartir pour un nouveau tour de circuit."
+        },
+        {
+          "type": "section",
+          "title": "Circuit 2 : Sangle Abdominale & Posture (3 Tours)"
+        },
+        {
+          "name": "Sit up",
+          "sets": "3",
+          "reps": "15",
+          "rest": "0s",
+          "rpe_target": "7",
+          "charge": "Poids du corps",
+          "check_technique": true,
+          "superset_type": "start",
+          "note_coach": "Contrôle la descente, ne te laisse pas tomber en arrière. Utilise tes abdos, pas d'à-coups avec la nuque."
+        },
+        {
+          "name": "Gainage Superman",
+          "sets": "3",
+          "reps": "45 sec",
+          "rest": "0s",
+          "rpe_target": "6",
+          "charge": "Poids du corps",
+          "check_technique": false,
+          "superset_type": "middle",
+          "note_coach": "Allongée sur le ventre, décolle le buste et les jambes. Regarde le sol pour ne pas casser la nuque. Les lombaires doivent travailler !"
+        },
+        {
+          "name": "Gainage oblique",
+          "sets": "3",
+          "reps": "40 sec / côté",
+          "rest": "60s",
+          "rpe_target": "7",
+          "charge": "Poids du corps",
+          "check_technique": true,
+          "superset_type": "end",
+          "note_coach": "Aligne bien ton corps, repousse le sol avec ton coude. Prends 1 min de pause à la fin des deux côtés avant de repartir sur les Sit ups."
+        },
+        {
+          "type": "section",
+          "title": "Finisher"
+        },
+        {
+          "name": " Hollow Horld",
+          "sets": "3",
+          "reps": "30s",
+          "rest": "30s",
+          "rpe_target": "7-8",
+          "charge": "Poids du corps",
+          "check_technique": false,
+          "note_coach": "C'est le dernier effort ! Maintient ton corps en position de banane, les lombaires bien au sol, jambes bien tendues."
+        }
       ]
     },
     {
