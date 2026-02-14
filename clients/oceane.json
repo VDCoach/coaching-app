@@ -292,7 +292,7 @@
         },
         {
           "type": "section",
-          "title": "Circuit 1 : Full Body & Cardio (4 Tours)"
+          "title": "Circuit 1 : Full Body & Cardio"
         },
         {
           "name": "Squats sautés",
@@ -303,7 +303,7 @@
           "charge": "Poids du corps",
           "check_technique": true,
           "superset_type": "start",
-          "note_coach": "Amorti bien la descente, garde le dos droit. Si le cardio monte trop ou que les genoux tirent, passe en squats classiques."
+          "note_coach": "Amorti bien la descente, garde le dos droit."
         },
         {
           "name": "Pompes sur les genoux",
@@ -314,7 +314,7 @@
           "charge": "Poids du corps",
           "check_technique": true,
           "superset_type": "middle",
-          "note_coach": "Garde les coudespas trop loin du corps, aligne bien ton bassin avec tes épaules (pas de fesses en l'air)."
+          "note_coach": "Garde les coudes pas trop loin du corps, aligne bien ton bassin avec tes épaules (pas de fesses en l'air)."
         },
         {
           "name": "Jumping Jacks",
@@ -369,7 +369,7 @@
           "title": "Finisher"
         },
         {
-          "name": " Hollow Horld",
+          "name": " Hollow Hold",
           "sets": "3",
           "reps": "30s",
           "rest": "30s",
