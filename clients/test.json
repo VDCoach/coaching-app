@@ -6,6 +6,116 @@
   "weeklyGoal": 3,
   "sessions": [
     {
+      "id": "s_7",
+      "date": "2026-02-14",
+      "name": "Circuit Cardio & gainage",
+      "session_intro": "Séance basique et efficace sans matériel !",
+      "nutrition_tip": "Même sans charge lourde, tes muscles travaillent dur. Garde une bonne portion de protéines sur ton prochain repas pour bien récupérer.",
+      "exercises": [
+        {
+          "type": "section",
+          "title": "Échauffement"
+        },
+        {
+          "name": "Mobilité articulaire + 10 squats lents + 20 Jumping Jacks légers",
+          "sets": "2",
+          "reps": "Circuit",
+          "rest": "0s",
+          "rpe_target": "3",
+          "check_technique": false,
+          "note_coach": "Prends le temps de bien réveiller tes articulations (poignets, genoux, chevilles) avant d'attaquer les sauts."
+        },
+        {
+          "type": "section",
+          "title": "Circuit 1 : Full Body & Cardio"
+        },
+        {
+          "name": "Squats sautés",
+          "sets": "4",
+          "reps": "20",
+          "rest": "0s",
+          "rpe_target": "8",
+          "charge": "Poids du corps",
+          "check_technique": true,
+          "superset_type": "start",
+          "note_coach": "Amorti bien la descente, garde le dos droit."
+        },
+        {
+          "name": "Pompes sur les genoux",
+          "sets": "4",
+          "reps": "10-12",
+          "rest": "0s",
+          "rpe_target": "7",
+          "charge": "Poids du corps",
+          "check_technique": true,
+          "superset_type": "middle",
+          "note_coach": "Garde les coudes pas trop loin du corps, aligne bien ton bassin avec tes épaules (pas de fesses en l'air)."
+        },
+        {
+          "name": "Jumping Jacks",
+          "sets": "4",
+          "reps": "60s",
+          "rest": "60s",
+          "rpe_target": "8",
+          "charge": "Poids du corps",
+          "check_technique": false,
+          "superset_type": "end",
+          "note_coach": "Mets du rythme ! Prends 1min de repos complet à la fin de cet exercice avant de repartir pour un nouveau tour de circuit."
+        },
+        {
+          "type": "section",
+          "title": "Circuit 2 : Sangle Abdominale & Posture"
+        },
+        {
+          "name": "Sit up",
+          "sets": "3",
+          "reps": "15",
+          "rest": "0s",
+          "rpe_target": "7",
+          "charge": "Poids du corps",
+          "check_technique": true,
+          "superset_type": "start",
+          "note_coach": "Contrôle la descente, ne te laisse pas tomber en arrière. Utilise tes abdos, pas d'à-coups avec la nuque."
+        },
+        {
+          "name": "Gainage Superman",
+          "sets": "3",
+          "reps": "45 sec",
+          "rest": "0s",
+          "rpe_target": "6",
+          "charge": "Poids du corps",
+          "check_technique": false,
+          "superset_type": "middle",
+          "note_coach": "Allongée sur le ventre, décolle le buste et les jambes. Regarde le sol pour ne pas casser la nuque. Les lombaires doivent travailler !"
+        },
+        {
+          "name": "Gainage oblique",
+          "sets": "3",
+          "reps": "40 sec / côté",
+          "rest": "60s",
+          "rpe_target": "7",
+          "charge": "Poids du corps",
+          "check_technique": true,
+          "superset_type": "end",
+          "note_coach": "Aligne bien ton corps, repousse le sol avec ton coude. Prends 1 min de pause à la fin des deux côtés avant de repartir sur les Sit ups."
+        },
+        {
+          "type": "section",
+          "title": "Finisher"
+        },
+        {
+          "name": " Hollow Hold",
+          "sets": "3",
+          "reps": "30s",
+          "rest": "30s",
+          "rpe_target": "7-8",
+          "charge": "Poids du corps",
+          "check_technique": false,
+          "note_coach": "C'est le dernier effort ! Maintient ton corps en position de banane, les lombaires bien au sol, jambes bien tendues."
+        }
+      ]
+    },
+    {
       "id": "s_2jambes",
       "date": "2026-02-16",
       "name": "Hypertrophie: Courbes & Galbe",
@@ -31,7 +141,7 @@
         },
         {
           "name": "Hip Thrust",
-          "sets": "5",
+          "sets": "4",
           "reps": "10-12",
           "rest": "120s",
           "charge": "25",
@@ -122,7 +232,7 @@
         },
         {
           "name": "Kettlebel swing",
-          "sets": "5",
+          "sets": "4",
           "reps": "45s",
           "rest": "45s",
           "charge": "12",
@@ -251,7 +361,7 @@
           "rpe_target": "8-9",
           "check_technique": false,
           "superset_type": "end",
-          "note_coach": "Intensité maximale. Vide le réservoir. Les éppaules bien au dessus des mains !"
+          "note_coach": "Intensité maximale. Vide le réservoir. Les épaules bien au dessus des mains !"
         },
         {
           "type": "section",
@@ -317,7 +427,7 @@
         { "type": "section", "title": "Renforcement" },
         {
           "name": "Hip Thrust",
-          "sets": "5",
+          "sets": "4",
           "reps": "8-10",
           "rest": "120s",
           "rpe_target": "9",
@@ -358,7 +468,7 @@
           "charge": "12",
           "check_technique": false,
           "superset_type": "end",
-          "note_coach": "Genoux très légèrement fléchis, essaie de sentir l'étirement sur l'arrière des cuisses. On rajoute 1 série ici !",
+          "note_coach": "Genoux très légèrement fléchis, essaie de sentir l'étirement sur l'arrière des cuisses.",
           "alternative": ""
         },
         {
@@ -490,118 +600,8 @@
       ]
     },
     {
-      "id": "s_7_bis",
-      "date": "2026-03-02",
-      "name": "Circuit Cardio & gainage",
-      "session_intro": "Séance basique et efficace sans matériel !",
-      "nutrition_tip": "Même sans charge lourde, tes muscles travaillent dur. Garde une bonne portion de protéines sur ton prochain repas pour bien récupérer.",
-      "exercises": [
-        {
-          "type": "section",
-          "title": "Échauffement"
-        },
-        {
-          "name": "Mobilité articulaire + 10 squats lents + 20 Jumping Jacks légers",
-          "sets": "2",
-          "reps": "Circuit",
-          "rest": "0s",
-          "rpe_target": "3",
-          "check_technique": false,
-          "note_coach": "Prends le temps de bien réveiller tes articulations (poignets, genoux, chevilles) avant d'attaquer les sauts."
-        },
-        {
-          "type": "section",
-          "title": "Circuit 1 : Full Body & Cardio"
-        },
-        {
-          "name": "Squats sautés",
-          "sets": "4",
-          "reps": "20",
-          "rest": "0s",
-          "rpe_target": "8",
-          "charge": "Poids du corps",
-          "check_technique": true,
-          "superset_type": "start",
-          "note_coach": "Amorti bien la descente, garde le dos droit."
-        },
-        {
-          "name": "Pompes sur les genoux",
-          "sets": "4",
-          "reps": "10-12",
-          "rest": "0s",
-          "rpe_target": "7",
-          "charge": "Poids du corps",
-          "check_technique": true,
-          "superset_type": "middle",
-          "note_coach": "Garde les coudes pas trop loin du corps, aligne bien ton bassin avec tes épaules (pas de fesses en l'air)."
-        },
-        {
-          "name": "Jumping Jacks",
-          "sets": "4",
-          "reps": "60s",
-          "rest": "60s",
-          "rpe_target": "8",
-          "charge": "Poids du corps",
-          "check_technique": false,
-          "superset_type": "end",
-          "note_coach": "Mets du rythme ! Prends 1min de repos complet à la fin de cet exercice avant de repartir pour un nouveau tour de circuit."
-        },
-        {
-          "type": "section",
-          "title": "Circuit 2 : Sangle Abdominale & Posture"
-        },
-        {
-          "name": "Sit up",
-          "sets": "3",
-          "reps": "15",
-          "rest": "0s",
-          "rpe_target": "7",
-          "charge": "Poids du corps",
-          "check_technique": true,
-          "superset_type": "start",
-          "note_coach": "Contrôle la descente, ne te laisse pas tomber en arrière. Utilise tes abdos, pas d'à-coups avec la nuque."
-        },
-        {
-          "name": "Gainage Superman",
-          "sets": "3",
-          "reps": "45 sec",
-          "rest": "0s",
-          "rpe_target": "6",
-          "charge": "Poids du corps",
-          "check_technique": false,
-          "superset_type": "middle",
-          "note_coach": "Allongée sur le ventre, décolle le buste et les jambes. Regarde le sol pour ne pas casser la nuque. Les lombaires doivent travailler !"
-        },
-        {
-          "name": "Gainage oblique",
-          "sets": "3",
-          "reps": "40 sec / côté",
-          "rest": "60s",
-          "rpe_target": "7",
-          "charge": "Poids du corps",
-          "check_technique": true,
-          "superset_type": "end",
-          "note_coach": "Aligne bien ton corps, repousse le sol avec ton coude. Prends 1 min de pause à la fin des deux côtés avant de repartir sur les Sit ups."
-        },
-        {
-          "type": "section",
-          "title": "Finisher"
-        },
-        {
-          "name": " Hollow Hold",
-          "sets": "3",
-          "reps": "30s",
-          "rest": "30s",
-          "rpe_target": "7-8",
-          "charge": "Poids du corps",
-          "check_technique": false,
-          "note_coach": "C'est le dernier effort ! Maintient ton corps en position de banane, les lombaires bien au sol, jambes bien tendues."
-        }
-      ]
-    },
-    {
       "id": "s_10",
-      "date": "2026-03-04",
+      "date": "2026-03-02",
       "name": "Hybride : Jambes de Feu & Sprints Vélo",
       "session_intro": "On fait chauffer les cuisses et le cardio ! Cette séance intègre beaucoup plus de vélo sous forme d'intervalles pour booster ta dépense calorique et augmenter la résistance de tes jambes.",
       "nutrition_tip": "Ce format hybride (musculation + cardio intense) consomme beaucoup d'énergie. Une petite collation (comme une banane ou une compote) 45 min avant la séance te donnera le coup de boost idéal.",
@@ -651,7 +651,7 @@
         },
         {
           "name": "Vélo - résistance forte",
-          "sets": "5",
+          "sets": "4",
           "reps": "1 min",
           "rest": "0s",
           "rpe_target": "9",
@@ -662,7 +662,7 @@
         },
         {
           "name": "Vélo - Résistance faible",
-          "sets": "5",
+          "sets": "4",
           "reps": "1 min",
           "rest": "0s",
           "rpe_target": "3",
