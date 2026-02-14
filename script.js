@@ -30,13 +30,30 @@ let moveSessionSourceIndex = -1;
 // Flags en mémoire pour ne pas spammer la bannière d'encouragement
 let encouragementShown75 = false;
 
-// Petits messages d'encouragement possibles (un sera choisi au hasard)
 const ENCOURAGEMENT_MESSAGES = [
+    // Messages originaux
     "Tu es quasiment au bout, reste dans le mouvement.",
     "Belle constance, termine cette séance comme tu l’as commencée.",
     "Encore quelques séries et tu valides une vraie victoire.",
     "Reste focus sur tes répétitions, tout compte.",
-    "Tu construis des habitudes solides à chaque série que tu termines."
+    "Tu construis des habitudes solides à chaque série que tu termines.",
+
+    // Nouveaux messages bienveillants
+    "Tu es presque arrivée ! Ces derniers efforts sont un cadeau que tu te fais à toi-même. Prends ton temps, mais ne lâche pas.",
+    "Je sais que c’est difficile maintenant, mais tu as déjà accompli tant de choses. Termine en douceur, mais termine.",
+    "La fatigue est là, mais rappelle-toi pourquoi tu as commencé. Tu es capable de finir cette séance avec fierté.",
+    "Ces dernières series restantes sont une preuve de ta persévérance. Respire, et avance pas à pas.",
+    "Tu peux être fière de toi. Ces dernières minutes sont ta victoire en train de s’écrire.",
+    "Tu as déjà donné tellement d’énergie à cette séance, bravo !",
+    "Je sais que c’est là que c’est le plus dur, mais regarde tout le chemin parcouru. Tu es à deux pas de pouvoir dire : 'Je l’ai fait.' Et ça, c’est précieux.",
+    "C’est normal si tu sens la fatigue monter. Écoute ton corps, mais rappelle-toi aussi que tu es plus forte que tu ne le penses. Allez, encore un petit effort.",
+    "Tu es en train de te prouver quelque chose d’important. Ces dernières minutes, c’est ta persévérance qui parle. Fais-lui confiance.",
+    "Presque terminé. Quand tu auras fini, tu pourras regarder en arrière et te dire : 'J’ai tenu jusqu’au bout.' Et ça, c’est une belle victoire.",
+    "Tu es presque au bout, accroche toi ! Tu es sur la bonne voie.",
+    "C’est dans ces derniers moments que tu te découvres vraiment. Respire, recentre-toi, et termine cette séance avec la satisfaction d’être allée jusqu’au bout.",
+    "Je sais que c’est intense, mais tu as déjà prouvé que tu pouvais tenir. Ces dernières répétitions ? Ce sont celles qui te rendront la plus fière.",
+    "La fin est proche, et chaque effort que tu fais maintenant est une victoire en soi. Ne sous-estime pas ce que tu es en train d’accomplir.",
+    "Tu as déjà fait le plus dur. Maintenant, c’est juste une question de tenir encore un peu – et tu vas pouvoir dire : 'J’ai tout donné.' Et ça, c’est inestimable."
 ];
 
 function getRandomEncouragementMessage() {
