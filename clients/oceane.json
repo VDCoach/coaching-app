@@ -190,7 +190,7 @@
     },
     {
       "id": "s_1",
-      "date": "2026-02-11",
+      "date": "2026-02-25",
       "name": "Cardio / Renfo : Objectif dépense calorique",
       "session_intro": " Séance hybride entre renfo et cardio ! ",
       "nutrition_tip": "",
@@ -215,7 +215,7 @@
         {
           "name": "Thrusters (Deux haltères légers)",
           "sets": "4",
-          "reps": "14",
+          "reps": "16",
           "rest": "0s",
 		  "charge": "6",
           "rpe_target": "8",
@@ -228,7 +228,7 @@
           "sets": "4",
           "reps": "14",
           "rest": "0s",
-		  "charge": "6",
+		  "charge": "9",
           "rpe_target": "7",
           "check_technique": true,
           "superset_type": "middle",
@@ -237,7 +237,7 @@
         {
           "name": "Squats sautés",
           "sets": "4",
-          "reps": "20",
+          "reps": "22",
           "rest": "0s",
           "rpe_target": "8",
           "check_technique": true,
@@ -247,7 +247,7 @@
         {
           "name": "Mountain Climbers",
           "sets": "4",
-          "reps": "30 sec",
+          "reps": "35 sec",
           "rest": "60s",
           "rpe_target": "8-9",
           "check_technique": false,
@@ -261,7 +261,7 @@
         {
           "name": "Escalier",
           "sets": "1",
-          "reps": "8min",
+          "reps": "10min",
           "rest": "0s",
           "rpe_target": "6",
           "check_technique": false,
@@ -329,7 +329,7 @@
         },
         {
           "type": "section",
-          "title": "Circuit 2 : Sangle Abdominale & Posture (3 Tours)"
+          "title": "Circuit 2 : Sangle Abdominale & Posture"
         },
         {
           "name": "Sit up",
