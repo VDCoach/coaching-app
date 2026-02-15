@@ -161,7 +161,7 @@
           "note_coach": "Dos bien droit. Descend le plus bas possible en gardant les pieds bien à plat."
         },
         {
-          "name": "Tirage Vertical Poitrine",
+          "name": "Tirage Vertical",
           "sets": "4",
           "reps": "12",
           "rest": "0s",
@@ -181,7 +181,7 @@
           "rpe_target": "9",
           "check_technique": false,
           "superset_type": "end",
-          "note_coach": "Contrôle la descente. Coude très légèrement fléchi, monte les haltères jusqu'aux épaules, pas plus haut."
+          "note_coach": "Contrôle la descente. Coude très légèrement fléchi, monte les haltères jusqu'aux épaules, pas plus haut. 3kg par bras"
         },
         {
           "name": "Coude-Genoux croisés",
