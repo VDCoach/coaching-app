@@ -243,7 +243,7 @@
         },
         {
           "name": "Fentes Bulgares",
-          "sets": "4",
+          "sets": "3",
           "reps": "8-10 par jambe",
           "rest": "0s",
           "charge": "12",
@@ -603,4 +603,103 @@
       "id": "s_10",
       "date": "2026-03-02",
       "name": "Hybride : Jambes de Feu & Sprints Vélo",
-    
+      "session_intro": "On fait chauffer les cuisses et le cardio ! Cette séance intègre beaucoup plus de vélo sous forme d'intervalles pour booster ta dépense calorique et augmenter la résistance de tes jambes.",
+      "nutrition_tip": "Ce format hybride (musculation + cardio intense) consomme beaucoup d'énergie. Une petite collation (comme une banane ou une compote) 45 min avant la séance te donnera le coup de boost idéal.",
+      "exercises": [
+        {
+          "type": "section",
+          "title": "Échauffement progressif"
+        },
+        {
+          "name": "Vélo (Résistance faible) + Mobilité",
+          "sets": "1",
+          "reps": "6 min",
+          "rest": "0s",
+          "rpe_target": "4",
+          "charge": "N/A",
+          "check_technique": false,
+          "note_coach": "Fais 5 bonnes minutes de vélo pour réveiller le cœur et les articulations, puis descends pour faire quelques squats profond"
+        },
+        {
+          "type": "section",
+          "title": "Bloc 1 : Force & Galbe"
+        },
+        {
+          "name": "Leg Press",
+          "sets": "3",
+          "reps": "10-12",
+          "rest": "90s",
+          "rpe_target": "8",
+          "charge": "40",
+          "warmup_sets": "1",
+          "check_technique": true,
+          "note_coach": "Place tes pieds un peu plus haut sur le plateau pour bien cibler l'arrière des cuisses et les fessiers. Contrôle bien la descente, remonte vite en poussant fort."
+        },
+        {
+          "name": "Fentes marchées aux haltères",
+          "sets": "4",
+          "reps": "12 pas en tout",
+          "rest": "60s",
+          "rpe_target": "7",
+          "charge": "10",
+          "check_technique": true,
+          "note_coach": "Fais de grands pas pour étirer au maximum tes fessiers. Garde le buste bien droit et regarde loin devant toi. J'ai monté un peu la charge pour taper fort dans les fessiers !"
+        },
+        {
+          "type": "section",
+          "title": "Bloc 2 : Cardio Vélo (Fractionné)"
+        },
+        {
+          "name": "Vélo - résistance forte",
+          "sets": "4",
+          "reps": "1 min",
+          "rest": "0s",
+          "rpe_target": "9",
+          "charge": "Résistance forte",
+          "check_technique": false,
+          "superset_type": "start",
+          "note_coach": "1 minute d'effort intense, les cuisses doivent bien brûler !."
+        },
+        {
+          "name": "Vélo - Résistance faible",
+          "sets": "4",
+          "reps": "1 min",
+          "rest": "0s",
+          "rpe_target": "3",
+          "charge": "Résistance faible",
+          "check_technique": false,
+          "superset_type": "end",
+          "note_coach": " C'est la minute où tu récupères, vas-y vraiment tranquillement mais continue bien de pédaler, ça fait circuler le sang dans tes cuisses et permet de mieux performer sur la haute intensité !."
+        },
+        {
+          "type": "section",
+          "title": "Bloc 3 : Isolation Moyens Fessiers"
+        },
+        {
+          "name": "Machine à Abduction (Assise)",
+          "sets": "4",
+          "reps": "15-20",
+          "rest": "45s",
+          "rpe_target": "8",
+          "charge": "Max",
+          "check_technique": true,
+          "note_coach": "Fais une pause d'une seconde en pleine contraction (quand les jambes sont écartées au maximum)."
+        },
+        {
+          "type": "section",
+          "title": "Finisher"
+        },
+        {
+          "name": "Corde à sauter",
+          "sets": "1",
+          "reps": "4 min",
+          "rest": "0s",
+          "rpe_target": "8-9",
+          "charge": "",
+          "check_technique": false,
+          "note_coach": ""
+        }
+      ]
+    }
+  ]
+}
