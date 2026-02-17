@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-02-17_v1",
+  "programVersion": "2026-02-17_v2",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -244,7 +244,7 @@
         },
         {
           "name": "Fentes Bulgares",
-          "sets": "3",
+          "sets": "4",
           "reps": "10 par jambe",
           "rest": "0s",
           "charge": "16",
