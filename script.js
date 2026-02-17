@@ -2,7 +2,7 @@
 const COACH_PHONE_NUMBER = "33662110786"; // TON NUMÉRO
 const COACH_NAME = "David";
 const DEFAULT_RECOVERY_VIDEO_URL = null; // Stretching générique 10min
-const APP_VERSION = "1.0.3";
+const APP_VERSION = "1.0.2";
 const PAST_DAYS = 2;
 const DAYS_AHEAD = 21;
 
@@ -142,6 +142,18 @@ function clearFutureSessionsData(data) {
     });
 
     if (!futureSessionIds.size) return;
+
+    // 0) Nettoyer les overrides de dates pour ces séances futures
+    let overridesChanged = false;
+    Object.keys(overrides).forEach((sid) => {
+        if (futureSessionIds.has(sid)) {
+            delete overrides[sid];
+            overridesChanged = true;
+        }
+    });
+    if (overridesChanged) {
+        setSessionDateOverrides(overrides);
+    }
 
     // 1) Nettoyer les champs persistés (charges / RPE / commentaires) pour ces séances futures
     const savedRaw = localStorage.getItem('fitapp_' + clientID);
