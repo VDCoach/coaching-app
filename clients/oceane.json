@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-02-17_v1",
+  "programVersion": "2026-02-17_v2",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -290,7 +290,7 @@
         {
           "name": "Escalier",
           "sets": "1",
-          "reps": "9min",
+          "reps": "10min",
           "rest": "0s",
           "rpe_target": "6",
           "check_technique": false,
