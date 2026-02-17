@@ -72,6 +72,7 @@ const KEY_NOTIF_DAY = 'fitapp_notif_day_' + clientID;
 const KEY_NOTIF_ENABLED = 'fitapp_notif_enabled_' + clientID;
 const KEY_INSTALL_DISMISSED = 'fitapp_install_dismissed_' + clientID;
 const KEY_GUIDED_MODE = 'fitapp_guided_' + clientID;
+const KEY_APP_VERSION = 'fitapp_app_version_' + clientID;
 const KEY_CHARGE_HISTORY = 'fitapp_charge_history_' + clientID;
 const KEY_SESSION_DATE_OVERRIDES = 'fitapp_session_dates_' + clientID;
 const KEY_COUNTERS = 'fitapp_counters_' + clientID;
@@ -112,6 +113,69 @@ function setSessionDateOverride(sessionId, dateStr) {
     const map = getSessionDateOverrides();
     map[sessionId] = dateStr;
     setSessionDateOverrides(map);
+}
+
+// --- MISE À JOUR DE PROGRAMME : PURGE AUTOMATIQUE DES DONNÉES D'AVENIR ---
+function getCurrentProgramVersion(data) {
+    if (data && data.programVersion != null) {
+        return String(data.programVersion);
+    }
+    // Fallback : version globale de l'app, pour déclencher une purge lors d'une mise à jour majeure
+    return 'app-' + APP_VERSION;
+}
+
+/** Supprime les charges / RPE / commentaires et historique de charges pour les séances datées à partir d'aujourd'hui. */
+function clearFutureSessionsData(data) {
+    if (!data || !data.sessions || !data.sessions.length) return;
+
+    const overrides = getSessionDateOverrides();
+    const todayStr = new Date().toISOString().slice(0, 10);
+    const futureSessionIds = new Set();
+
+    data.sessions.forEach((s, idx) => {
+        const sid = s.id || `session_${idx}`;
+        const dateStr = overrides[sid] || s.date || null;
+        if (!dateStr) return;
+        if (dateStr >= todayStr) {
+            futureSessionIds.add(sid);
+        }
+    });
+
+    if (!futureSessionIds.size) return;
+
+    // 1) Nettoyer les champs persistés (charges / RPE / commentaires) pour ces séances futures
+    const savedRaw = localStorage.getItem('fitapp_' + clientID);
+    if (savedRaw) {
+        let dataMap;
+        try { dataMap = JSON.parse(savedRaw) || {}; } catch { dataMap = {}; }
+        let changed = false;
+        Object.keys(dataMap).forEach((key) => {
+            if (!/^(charge-|rpe-|comment-)/.test(key)) return;
+            const parts = key.split('-');
+            const sessionIdPart = parts[1];
+            if (sessionIdPart && futureSessionIds.has(sessionIdPart)) {
+                delete dataMap[key];
+                changed = true;
+            }
+        });
+        if (changed) {
+            try {
+                localStorage.setItem('fitapp_' + clientID, JSON.stringify(dataMap));
+            } catch (_) { /* quota ou autre, on ignore */ }
+        }
+    }
+
+    // 2) Nettoyer l'historique de charges pour les dates futures de ces séances
+    const history = getChargeHistory();
+    const filteredHistory = history.filter(h => {
+        if (!h || !h.sessionId || !h.date) return true;
+        if (!futureSessionIds.has(h.sessionId)) return true;
+        // On garde uniquement les entrées datées avant aujourd'hui
+        return h.date < todayStr;
+    });
+    try {
+        localStorage.setItem(KEY_CHARGE_HISTORY, JSON.stringify(filteredHistory));
+    } catch (_) { /* ignore */ }
 }
 
 /** Échappe les caractères HTML pour afficher du texte sans risque XSS dans innerHTML. */
@@ -362,6 +426,16 @@ function initApp(data) {
     document.getElementById('program-title').classList.remove('loading-skeleton');
     document.getElementById('client-name').textContent = `Bonjour ${data.clientName} !`;
     document.getElementById('program-title').textContent = data.programTitle;
+
+    // Détecter une mise à jour de programme (ou de version d'app) et nettoyer automatiquement les données des séances futures
+    const currentVersion = getCurrentProgramVersion(data);
+    const previousVersion = localStorage.getItem(KEY_APP_VERSION);
+    if (previousVersion && previousVersion !== currentVersion) {
+        clearFutureSessionsData(data);
+    }
+    try {
+        localStorage.setItem(KEY_APP_VERSION, currentVersion);
+    } catch (_) { /* ignore */ }
 
     if (data.sessions && data.sessions.length > 0) {
         renderCalendar(data.sessions);
@@ -1219,6 +1293,7 @@ function openCompletionOverlay() {
     }
     if (currentSessionDate) markSessionCompleted(currentSessionId, currentSessionDate);
     saveChargeHistory();
+    resetCompletionModalFields();
     fireConfetti();
     document.body.classList.add('modal-open');
     const overlay = document.getElementById('completion-overlay');
@@ -1231,6 +1306,30 @@ function openCompletionOverlay() {
     loadCoachNoteIntoModal();
     setupModalFocusTrap();
     document.addEventListener('keydown', handleModalEscape);
+}
+
+function resetCompletionModalFields() {
+    // Réinitialiser les sliders et leurs valeurs affichées
+    const scoreIds = ['score-muscle', 'score-cardio', 'score-fatigue', 'score-sleep'];
+    scoreIds.forEach(id => {
+        const input = document.getElementById(id);
+        if (input) {
+            input.value = input.getAttribute('value') || '5';
+            const span = document.querySelector('.score-value[data-for="' + id + '"]');
+            if (span) span.textContent = input.value;
+        }
+    });
+
+    // Réinitialiser les champs texte de commentaires
+    const commentIds = ['com-muscle', 'com-cardio', 'com-fatigue', 'com-sleep'];
+    commentIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+    });
+
+    // Réinitialiser le message libre pour le coach
+    const coachTa = document.getElementById('coach-note-free');
+    if (coachTa) coachTa.value = '';
 }
 
 function updateProgress() {
@@ -2056,11 +2155,11 @@ function injectNutritionCard() {
 
 function loadCoachNoteIntoModal() {
     const ta = document.getElementById('coach-note-free');
-    if (ta) ta.value = getCoachNote();
+    if (ta) ta.value = '';
 }
 function saveCoachNoteFromModal() {
     const ta = document.getElementById('coach-note-free');
-    if (ta) setCoachNote(ta.value);
+    if (ta) setCoachNote('');
 }
 
 function refreshCalendarCompletedState() {
@@ -3259,7 +3358,10 @@ document.body.addEventListener('input', (e) => {
         const color = sliderColorForRatio(ratio);
         e.target.style.setProperty('--slider-thumb-color', color);
     }
-    if (e.target.id === 'coach-note-free') setCoachNote(e.target.value);
+    if (e.target.id === 'coach-note-free') {
+        // On ne persiste plus le message libre d'une séance à l'autre
+        return;
+    }
 });
 document.body.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
