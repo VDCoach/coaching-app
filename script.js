@@ -2,7 +2,7 @@
 const COACH_PHONE_NUMBER = "33662110786"; // TON NUMÉRO
 const COACH_NAME = "David";
 const DEFAULT_RECOVERY_VIDEO_URL = null; // Stretching générique 10min
-const APP_VERSION = "1.0.2";
+const APP_VERSION = "1.0.3";
 const PAST_DAYS = 2;
 const DAYS_AHEAD = 21;
 
