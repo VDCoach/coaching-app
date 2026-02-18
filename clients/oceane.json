@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-02-17_v2",
+  "programVersion": "2026-02-17_v3",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -275,13 +275,13 @@
           "note_coach": "Dos bien droit, prend appuis sur un banc avec la main libre, tire en essayant de rentrer l'omoplate vers l'intérieur en haut du mouvement."
         },
         {
-          "name": "Pallof Press",
+          "name": "gainage oblique",
           "sets": "3",
-          "reps": "30s/côté",
-          "rest": "45s",
+          "reps": "45s/côté",
+          "rest": "30s",
           "rpe_target": "6",
           "check_technique": false,
-          "note_coach": "Anti-rotation. Reste statique, les bras bien horizontaux et tendus. Trouve une charge qui te mets en difficulté sur 30s mais où tu arrives à maintenir une bonne position."
+          "note_coach": ""
         },
         {
           "type": "section",
