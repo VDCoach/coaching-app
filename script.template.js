@@ -1,5 +1,5 @@
 // --- CONFIGURATION ---
-const COACH_PHONE_NUMBER = "+33612345678"; // Remplacé par build.js depuis .env
+const COACH_PHONE_NUMBER = "__MYNUMBER__"; // Remplacé par build.js depuis .env
 const COACH_NAME = "David";
 const DEFAULT_RECOVERY_VIDEO_URL = null; // Stretching générique 10min
 const APP_VERSION = "1.0.10";
