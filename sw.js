@@ -1,5 +1,5 @@
 // Update this cache name on each release to invalidate stale app shell files.
-const CACHE_NAME = 'coaching-v1.0.10';
+const CACHE_NAME = 'coaching-v1.0.11';
 const ASSETS = [
   './',
   './index.html',
