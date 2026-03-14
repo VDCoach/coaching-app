@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-11_v2",
+  "programVersion": "2026-03-11_v3",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -391,7 +391,7 @@
           "sets": "4",
           "reps": "8min",
           "rest": "30s",
-          "rpe_target": "7",
+          "rpe_target": "6",
           "check_technique": true,
           "superset_type": "start",
           "note_coach": " Trouve une vitesse qui te permet de tenir les 8 minutes quatre fois, mais n'hésite pas à faire monter le cardio !"
@@ -412,7 +412,7 @@
           "sets": "4",
           "reps": "10",
           "rest": "30s",
-          "rpe_target": "6",
+          "rpe_target": "8",
           "check_technique": false,
           "superset_type": "end",
 "note_coach": " Deux pompes sur les genoux en bas de chaque burpees."
