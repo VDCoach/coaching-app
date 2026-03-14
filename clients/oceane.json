@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-11_v3",
+  "programVersion": "2026-03-11_v13",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -394,7 +394,7 @@
           "rpe_target": "6",
           "check_technique": true,
           "superset_type": "start",
-          "note_coach": " Trouve une vitesse qui te permet de tenir les 8 minutes quatre fois, mais n'hésite pas à faire monter le cardio !"
+          "note_coach": " Trouve une vitesse qui te permet de tenir les 8 minutes quatre fois, cardio moyen, on ne fatigue pas trop les jambes pour attaquer fort la muscu la semaine prochaine ?"
         },
 {
           "name": "Tirage verticale",
@@ -405,7 +405,7 @@
           "rpe_target": "8",
           "check_technique": true,
           "superset_type": "middle",
-          "note_coach": ""
+          "note_coach": " la tu peux y aller, un maximum de reps ! "
 },
         {
           "name": "Burpees avec 2 pompes ",
