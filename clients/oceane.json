@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-11_v14",
+  "programVersion": "2026-03-11_v15",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -381,26 +381,26 @@
     },
     {
       "id": "s_6",
-      "date": "2026-02-26",
-      "name": " To the moon ! 🚀",
+      "date": "2026-03-14",
+      "name": " Cardio 2",
       "nutrition_tip": "",
       "exercises": [
         { "type": "section", "title": "Cardio" },
         {
           "name": "Escalier",
           "sets": "4",
-          "reps": "10min",
-          "rest": "60s",
+          "reps": "8min",
+          "rest": "30s",
           "rpe_target": "7",
           "check_technique": true,
           "superset_type": "start",
-          "note_coach": " Trouve une vitesse qui te permet de tenir les 10 minutes quatre fois, mais n'hésite pas à faire monter le cardio !"
+          "note_coach": " Trouve une vitesse qui te permet de tenir les 8 minutes quatre fois, mais n'hésite pas à faire monter le cardio !"
         },
         {
-          "name": "Coude-Genoux croisés",
+          "name": "Corde à sauter",
           "sets": "4",
-          "reps": "45",
-          "rest": "60s",
+          "reps": "60s",
+          "rest": "30s",
           "rpe_target": "6",
           "check_technique": false,
           "superset_type": "end"
