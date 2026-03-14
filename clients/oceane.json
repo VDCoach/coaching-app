@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-11_v15",
+  "programVersion": "2026-03-11_v1",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -396,14 +396,25 @@
           "superset_type": "start",
           "note_coach": " Trouve une vitesse qui te permet de tenir les 8 minutes quatre fois, mais n'hésite pas à faire monter le cardio !"
         },
-        {
-          "name": "Corde à sauter",
+{
+          "name": "Tirage verticale",
           "sets": "4",
-          "reps": "60s",
+          "reps": "Max",
+          "charge":"35kg",
+          "rest": "30",
+          "rpe_target": "8",
+          "check_technique": true,
+          "superset_type": "middle",
+          "note_coach": "",
+        {
+          "name": "Burpees avec 2 pompes ",
+          "sets": "4",
+          "reps": "10",
           "rest": "30s",
           "rpe_target": "6",
           "check_technique": false,
-          "superset_type": "end"
+          "superset_type": "end",
+"note_coach": " Deux pompes sur les genoux en bas de chaque burpees."
         }
       ]
     },
