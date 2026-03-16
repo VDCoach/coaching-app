@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-11_v13",
+  "programVersion": "2026-03-16_v14",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -118,9 +118,9 @@
     },
     {
       "id": "s_2jambes",
-      "date": "2026-02-16",
-      "name": "Hypertrophie: Courbes & Galbe",
-      "session_intro": "Séance axée renforcement musculaire !",
+      "date": "2026-03-16",
+      "name": "Renfo lourd",
+      "session_intro": "Séance axée renforcement musculaire, en limitant la prise de volume musculaire !",
       "nutrition_tip": "Pour la perte de poids, ne néglige pas les protéines pendant tes repas, c'est bon pour la satiété et la construction des muscles. Assure toi d'avoir au moins 110gr de protéines par jour",
       "exercises": [
         {
@@ -142,31 +142,31 @@
         },
         {
           "name": "Hip Thrust",
-          "sets": "4",
-          "reps": "10-12",
+          "sets": "3",
+          "reps": "3-5",
           "rest": "120s",
-          "charge": "25",
+          "charge": "70",
           "rpe_target": "8",
           "warmup_sets": "1",
           "check_technique": true,
-          "note_coach": "Contraction maximale des fessiers en haut. Pousse plutôt avec l'arrière des pieds."
+          "note_coach": "Ne néglige pas l'echauffement car on ajoute pas mal de charge là, monte tranquillement en charge avec quelques séries intermédiaire de quelques reps."
         },
         {
-          "name": "Goblet Squat",
-          "sets": "3",
-          "reps": "12",
-          "rest": "75s",
-          "charge": "12.5",
+          "name": "Corde à sauter",
+          "sets": "4",
+          "reps": "60s",
+          "rest": "30s",
+          "charge": "",
           "rpe_target": "7",
-          "check_technique": true,
-          "note_coach": "Dos bien droit. Descend le plus bas possible en gardant les pieds bien à plat."
+          "check_technique": false,
+          "note_coach": " "
         },
         {
           "name": "Tirage Vertical",
           "sets": "4",
-          "reps": "12",
-          "rest": "0s",
-          "charge": "30",
+          "reps": "Max",
+          "rest": "15s",
+          "charge": "35",
           "rpe_target": "7",
           "check_technique": true,
           "warmup_sets": "1",
@@ -176,10 +176,10 @@
         {
           "name": "Élévations Latérales haltères",
           "sets": "4",
-          "reps": "15-20",
+          "reps": "Max",
           "rest": "60s",
           "charge": "6",
-          "rpe_target": "9",
+          "rpe_target": "8",
           "check_technique": false,
           "superset_type": "end",
           "note_coach": "Contrôle la descente. Coude très légèrement fléchi, monte les haltères jusqu'aux épaules, pas plus haut. 3kg par bras"
@@ -187,7 +187,7 @@
         {
           "name": "Coude-Genoux croisés",
           "sets": "4",
-          "reps": "30",
+          "reps": "36",
           "rest": "30s",
           "rpe_target": "N/A",
           "check_technique": false,
@@ -198,13 +198,13 @@
           "title": "Finisher optionnel"
         },
         {
-          "name": "Escalier",
+          "name": "Elliptique",
           "sets": "1",
-          "reps": "8min",
+          "reps": "15min",
           "rest": "0s",
           "rpe_target": "6",
           "check_technique": false,
-          "note_coach": "Si tu as encore de l'energie, profite-en. Rythme moyen, tu dois être essouflé mais pouvoir tenir à peu près une conversation."
+          "note_coach": "On change un peu la monotonie de l'escalier."
         }
       ]
     },
