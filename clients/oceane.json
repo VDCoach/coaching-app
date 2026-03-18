@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v15",
+  "programVersion": "2026-03-18_v16",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -55,7 +55,7 @@
           "rest": "60s",
           "charge": "Max",
           "rpe_target": "7",
-          "note_coach": "Comme l'exo précédent, adapte la charge pour conserver une dizaine de répétitions."
+          "note_coach": "Comme l'exo précédent, adapte la charge pour conserver une dizaine de répétitions. Tu peux tester les charges sur 2-3 répétitions avant ta première série pour mieux jauger."
         },
         {
           "type": "section",
