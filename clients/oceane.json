@@ -1,120 +1,76 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-16_v14",
+  "programVersion": "2026-03-18_v15",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
   "sessions": [
     {
-      "id": "s_7",
-      "date": "2026-02-14",
-      "name": "Circuit Cardio & gainage",
-      "session_intro": "Séance basique et efficace sans matériel !",
-      "nutrition_tip": "Même sans charge lourde, tes muscles travaillent dur. Garde une bonne portion de protéines sur ton prochain repas pour bien récupérer.",
+      "id": "s_12",
+      "date": "2026-03-19",
+      "name": "Haut du corps ",
+      "session_intro": "Focus sur le haut du corps.",
+      "nutrition_tip": "L'augmentation du cardio demande une hydratation constante. Vise 2L d'eau par jour minimum.",
       "exercises": [
         {
           "type": "section",
           "title": "Échauffement"
         },
         {
-          "name": "Mobilité articulaire + 10 squats lents + 20 Jumping Jacks légers",
-          "sets": "2",
-          "reps": "Circuit",
+          "name": "Vélo Elliptique",
+          "sets": "1",
+          "reps": "8 min",
           "rest": "0s",
-          "rpe_target": "3",
-          "check_technique": false,
-          "note_coach": "Prends le temps de bien réveiller tes articulations (poignets, genoux, chevilles) avant d'attaquer les sauts."
+          "rpe_target": "4",
+          "note_coach": "Sers-toi au maximum des bras pour bien échauffer le haut du corps."
         },
         {
           "type": "section",
-          "title": "Circuit 1 : Full Body & Cardio"
+          "title": "Renforcement Haut du Corps"
         },
         {
-          "name": "Squats sautés",
-          "sets": "4",
-          "reps": "20",
-          "rest": "0s",
-          "rpe_target": "8",
-          "charge": "Poids du corps",
-          "check_technique": true,
-          "superset_type": "start",
-          "note_coach": "Amorti bien la descente, garde le dos droit."
-        },
-        {
-          "name": "Pompes sur les genoux",
-          "sets": "4",
-          "reps": "10-12",
-          "rest": "0s",
-          "rpe_target": "7",
-          "charge": "Poids du corps",
-          "check_technique": true,
-          "superset_type": "middle",
-          "note_coach": "Garde les coudes pas trop loin du corps, aligne bien ton bassin avec tes épaules (pas de fesses en l'air)."
-        },
-        {
-          "name": "Jumping Jacks",
-          "sets": "4",
-          "reps": "60s",
+          "name": "Tirage Vertical Poitrine",
+          "sets": "3",
+          "reps": "Max",
           "rest": "60s",
+          "charge": "40",
           "rpe_target": "8",
-          "charge": "Poids du corps",
-          "check_technique": false,
-          "superset_type": "end",
-          "note_coach": "Mets du rythme ! Prends 1min de repos complet à la fin de cet exercice avant de repartir pour un nouveau tour de circuit."
-        },
-        {
-          "type": "section",
-          "title": "Circuit 2 : Sangle Abdominale & Posture"
-        },
-        {
-          "name": "Sit up",
-          "sets": "3",
-          "reps": "15",
-          "rest": "0s",
-          "rpe_target": "7",
-          "charge": "Poids du corps",
           "check_technique": true,
-          "superset_type": "start",
-          "note_coach": "Contrôle la descente, ne te laisse pas tomber en arrière. Utilise tes abdos, pas d'à-coups avec la nuque."
+          "note_coach": "On continue de monter les charges !"
         },
         {
-          "name": "Gainage Superman",
+          "name": "Développé Épaules à la machine",
           "sets": "3",
-          "reps": "45 sec",
-          "rest": "0s",
-          "rpe_target": "6",
-          "charge": "Poids du corps",
-          "check_technique": false,
-          "superset_type": "middle",
-          "note_coach": "Allongée sur le ventre, décolle le buste et les jambes. Regarde le sol pour ne pas casser la nuque. Les lombaires doivent travailler !"
-        },
-        {
-          "name": "Gainage oblique",
-          "sets": "3",
-          "reps": "40 sec / côté",
+          "reps": "10",
           "rest": "60s",
+          "charge": "Max",
           "rpe_target": "7",
-          "charge": "Poids du corps",
-          "check_technique": true,
-          "superset_type": "end",
-          "note_coach": "Aligne bien ton corps, repousse le sol avec ton coude. Prends 1 min de pause à la fin des deux côtés avant de repartir sur les Sit ups."
+          "note_coach": "Utilise une charge te permettant d'environ 10 reps, tu peux changer la charge selon les séries !"
+        },
+        {
+          "name": "Tirage Horizontal à la poulie assise",
+          "sets": "3",
+          "reps": "10",
+          "rest": "60s",
+          "charge": "Max",
+          "rpe_target": "7",
+          "note_coach": "Comme l'exo précédent, adapte la charge pour conserver une dizaine de répétitions."
         },
         {
           "type": "section",
-          "title": "Finisher"
+          "title": "Cardio doux"
         },
         {
-          "name": " Hollow Hold",
-          "sets": "3",
-          "reps": "30s",
-          "rest": "30s",
-          "rpe_target": "7-8",
-          "charge": "Poids du corps",
-          "check_technique": false,
-          "note_coach": "C'est le dernier effort ! Maintient ton corps en position de banane, les lombaires bien au sol, jambes bien tendues."
+          "name": "Vélo",
+          "sets": "1",
+          "reps": "10 min",
+          "rest": "0s",
+          "rpe_target": "4",
+          "note_coach": "Vélo très tranquille, le cardio doit rester bas."
         }
       ]
+
     },
     {
       "id": "s_2jambes",
