@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v17",
+  "programVersion": "2026-03-18_v18",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -167,7 +167,7 @@
     },
     {
       "id": "s_3",
-      "date": "2026-03-28",
+      "date": "2026-03-21",
       "session_intro": " ",
       "name": " Full Body Hybride cardio / renfo",
       "exercises": [
