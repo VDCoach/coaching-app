@@ -1,14 +1,14 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v16",
+  "programVersion": "2026-03-18_v17",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
   "sessions": [
     {
-      "id": "s_12",
-      "date": "2026-03-19",
+      "id": "s_1",
+      "date": "2026-03-25",
       "name": "Haut du corps ",
       "session_intro": "Focus sur le haut du corps.",
       "nutrition_tip": "L'augmentation du cardio demande une hydratation constante. Vise 2L d'eau par jour minimum.",
@@ -20,7 +20,7 @@
         {
           "name": "Vélo Elliptique",
           "sets": "1",
-          "reps": "8 min",
+          "reps": "10 min",
           "rest": "0s",
           "rpe_target": "4",
           "note_coach": "Sers-toi au maximum des bras pour bien échauffer le haut du corps."
@@ -32,30 +32,30 @@
         {
           "name": "Tirage Vertical Poitrine",
           "sets": "3",
-          "reps": "Max",
+          "reps": "10",
           "rest": "60s",
           "charge": "40",
           "rpe_target": "8",
           "check_technique": true,
-          "note_coach": "On continue de monter les charges !"
+          "note_coach": "On vise les trois fois 10 reps."
         },
         {
           "name": "Développé Épaules à la machine",
           "sets": "3",
           "reps": "10",
           "rest": "60s",
-          "charge": "Max",
+          "charge": "25",
           "rpe_target": "7",
-          "note_coach": "Utilise une charge te permettant d'environ 10 reps, tu peux changer la charge selon les séries !"
+          "note_coach": ""
         },
         {
           "name": "Tirage Horizontal à la poulie assise",
           "sets": "3",
           "reps": "10",
           "rest": "60s",
-          "charge": "Max",
+          "charge": "35",
           "rpe_target": "7",
-          "note_coach": "Comme l'exo précédent, adapte la charge pour conserver une dizaine de répétitions. Tu peux tester les charges sur 2-3 répétitions avant ta première série pour mieux jauger."
+          "note_coach": "Utilise une charge proche de 35 kg, et on vise le trois fois 10 reps."
         },
         {
           "type": "section",
@@ -64,7 +64,7 @@
         {
           "name": "Vélo",
           "sets": "1",
-          "reps": "10 min",
+          "reps": "14 min",
           "rest": "0s",
           "rpe_target": "4",
           "note_coach": "Vélo très tranquille, le cardio doit rester bas."
@@ -73,8 +73,8 @@
 
     },
     {
-      "id": "s_2jambes",
-      "date": "2026-03-16",
+      "id": "s_2",
+      "date": "2026-03-23",
       "name": "Renfo lourd",
       "session_intro": "Séance axée renforcement musculaire, en limitant la prise de volume musculaire !",
       "nutrition_tip": "Pour la perte de poids, ne néglige pas les protéines pendant tes repas, c'est bon pour la satiété et la construction des muscles. Assure toi d'avoir au moins 110gr de protéines par jour",
@@ -101,7 +101,7 @@
           "sets": "3",
           "reps": "3-5",
           "rest": "120s",
-          "charge": "70",
+          "charge": "85",
           "rpe_target": "8",
           "warmup_sets": "1",
           "check_technique": true,
@@ -110,7 +110,7 @@
         {
           "name": "Corde à sauter",
           "sets": "4",
-          "reps": "60s",
+          "reps": "75s",
           "rest": "30s",
           "charge": "",
           "rpe_target": "7",
@@ -120,30 +120,31 @@
         {
           "name": "Tirage Vertical",
           "sets": "4",
-          "reps": "Max",
+          "reps": "10",
           "rest": "15s",
-          "charge": "35",
+          "charge": "40",
           "rpe_target": "7",
           "check_technique": true,
           "warmup_sets": "1",
           "superset_type": "start",
-          "note_coach": "Sors la poitrine. On accentue un peu le volume ici pour la posture !"
+          "note_coach": "On vise les trois fois 10 reps."
         },
         {
-          "name": "Élévations Latérales haltères",
+          "name": "Extension triceps debout à l'haltère",
           "sets": "4",
           "reps": "Max",
           "rest": "60s",
-          "charge": "6",
-          "rpe_target": "8",
+          "rpe_target": "9",
+          "charge": "8kg",
           "check_technique": false,
           "superset_type": "end",
-          "note_coach": "Contrôle la descente. Coude très légèrement fléchi, monte les haltères jusqu'aux épaules, pas plus haut. 3kg par bras"
+          "note_coach": "Isole l'arrière du bras. Coudes fixes et bien haut. Descend le plus bas possible pour bien étirer le triceps et ensuite extension complète des coudes.",
+          "alternative": "Extension Triceps Haltère"
         },
         {
           "name": "Coude-Genoux croisés",
           "sets": "4",
-          "reps": "36",
+          "reps": "45",
           "rest": "30s",
           "rpe_target": "N/A",
           "check_technique": false,
@@ -156,19 +157,19 @@
         {
           "name": "Elliptique",
           "sets": "1",
-          "reps": "15min",
+          "reps": "16min",
           "rest": "0s",
           "rpe_target": "6",
           "check_technique": false,
-          "note_coach": "On change un peu la monotonie de l'escalier."
+          "note_coach": ""
         }
       ]
     },
     {
       "id": "s_3",
-      "date": "2026-03-12",
-      "session_intro": " Séance plutôt renfo, avec un peu de cardio en début de séance.",
-      "name": " Full Body",
+      "date": "2026-03-28",
+      "session_intro": " ",
+      "name": " Full Body Hybride cardio / renfo",
       "exercises": [
         {
           "type": "section",
@@ -192,33 +193,33 @@
           "sets": "4",
           "reps": "45s",
           "rest": "45s",
-          "charge": "14",
+          "charge": "16",
           "rpe_target": "8",
           "check_technique": true, 
           "warmup_sets": "1",
           "note_coach": "Focus chaîne postérieure. Garde le dos bien droit et monte la KB au moins à hauteur de tes yeux. Contraction des fessiers en fin de mouvement."
         },
         {
-          "name": "Fentes Bulgares",
+          "name": "Burpees",
           "sets": "4",
-          "reps": "12 par jambe",
-          "rest": "0s",
-          "charge": "12",
+          "reps": "16",
+          "rest": "20s",
+          "charge": "",
           "rpe_target": "7-8",
           "check_technique": true,
           "superset_type": "start",
-          "note_coach": "12kg dans une seule main. Penche légèrement le buste en avant pour recruter les fessiers au maximum et moins les quadriceps."
+          "note_coach": ""
         },
         {
-          "name": "Développé épaules à la machine",
+          "name": " Corde à sauter",
           "sets": "4",
-          "reps": "10-12",
-          "rest": "90s",
+          "reps": "90s",
+          "rest": "60s",
           "charge": "20",
           "rpe_target": "7",
           "check_technique": true, 
           "superset_type": "end",
-          "note_coach": "Les pieds bien ancrés au sol pour la stabilité."
+          "note_coach": ""
         },
         {
           "name": "Tirage bucheron (Rowing unilatéral haltère)",
@@ -233,7 +234,7 @@
         {
           "name": "gainage oblique",
           "sets": "3",
-          "reps": "45s/côté",
+          "reps": "60s/côté",
           "rest": "30s",
           "rpe_target": "6",
           "check_technique": false,
@@ -241,16 +242,16 @@
         },
         {
           "type": "section",
-          "title": "Finisher optionnel"
+          "title": "Finisher"
         },
         {
-          "name": "Escalier",
+          "name": "Marche rapide sur tapis incliné",
           "sets": "1",
-          "reps": "12min",
+          "reps": "16min",
           "rest": "0s",
           "rpe_target": "6",
           "check_technique": false,
-          "note_coach": "Si tu as encore de l'energie, profite-en. Rythme moyen, tu dois être essouflé mais pouvoir tenir à peu près une conversation."
+          "note_coach": "Marche au moins à 6.5km/h si tu peux, sans te tenir au tapis."
         }
       ]
     },
