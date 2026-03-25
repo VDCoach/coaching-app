@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v18",
+  "programVersion": "2026-03-18_v19",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -20,7 +20,7 @@
         {
           "name": "Vélo Elliptique",
           "sets": "1",
-          "reps": "10 min",
+          "reps": "12 min",
           "rest": "0s",
           "rpe_target": "4",
           "note_coach": "Sers-toi au maximum des bras pour bien échauffer le haut du corps."
@@ -30,14 +30,14 @@
           "title": "Renforcement Haut du Corps"
         },
         {
-          "name": "Tirage Vertical Poitrine",
+          "name": "Curl biceps haltères",
           "sets": "3",
-          "reps": "10",
+          "reps": "Max",
           "rest": "60s",
-          "charge": "40",
+          "charge": "4",
           "rpe_target": "8",
           "check_technique": true,
-          "note_coach": "On vise les trois fois 10 reps."
+          "note_coach": "4kg, maximum de reps. Les coudes sont bien fixés contre le corps. Paume des mains vers l'avant"
         },
         {
           "name": "Développé Épaules à la machine",
@@ -64,7 +64,7 @@
         {
           "name": "Vélo",
           "sets": "1",
-          "reps": "14 min",
+          "reps": "16 min",
           "rest": "0s",
           "rpe_target": "4",
           "note_coach": "Vélo très tranquille, le cardio doit rester bas."
