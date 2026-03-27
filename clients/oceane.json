@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v19",
+  "programVersion": "2026-03-18_v20",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -167,7 +167,7 @@
     },
     {
       "id": "s_3",
-      "date": "2026-03-21",
+      "date": "2026-03-27",
       "session_intro": " ",
       "name": " Full Body Hybride cardio / renfo",
       "exercises": [
@@ -191,9 +191,9 @@
         {
           "name": "Kettlebel swing",
           "sets": "4",
-          "reps": "45s",
+          "reps": "60s",
           "rest": "45s",
-          "charge": "16",
+          "charge": "14",
           "rpe_target": "8",
           "check_technique": true, 
           "warmup_sets": "1",
@@ -202,7 +202,7 @@
         {
           "name": "Burpees",
           "sets": "4",
-          "reps": "16",
+          "reps": "18",
           "rest": "20s",
           "charge": "",
           "rpe_target": "7-8",
@@ -213,7 +213,7 @@
         {
           "name": " Corde à sauter",
           "sets": "4",
-          "reps": "90s",
+          "reps": "110s",
           "rest": "60s",
           "charge": "20",
           "rpe_target": "7",
@@ -234,7 +234,7 @@
         {
           "name": "gainage oblique",
           "sets": "3",
-          "reps": "60s/côté",
+          "reps": "75s/côté",
           "rest": "30s",
           "rpe_target": "6",
           "check_technique": false,
@@ -247,7 +247,7 @@
         {
           "name": "Marche rapide sur tapis incliné",
           "sets": "1",
-          "reps": "16min",
+          "reps": "18min",
           "rest": "0s",
           "rpe_target": "6",
           "check_technique": false,
