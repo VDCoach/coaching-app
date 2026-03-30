@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v20",
+  "programVersion": "2026-03-18_v21",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -74,7 +74,7 @@
     },
     {
       "id": "s_2",
-      "date": "2026-03-23",
+      "date": "2026-03-30",
       "name": "Renfo lourd",
       "session_intro": "Séance axée renforcement musculaire, en limitant la prise de volume musculaire !",
       "nutrition_tip": "Pour la perte de poids, ne néglige pas les protéines pendant tes repas, c'est bon pour la satiété et la construction des muscles. Assure toi d'avoir au moins 110gr de protéines par jour",
@@ -101,7 +101,7 @@
           "sets": "3",
           "reps": "3-5",
           "rest": "120s",
-          "charge": "85",
+          "charge": "90",
           "rpe_target": "8",
           "warmup_sets": "1",
           "check_technique": true,
@@ -110,7 +110,7 @@
         {
           "name": "Corde à sauter",
           "sets": "4",
-          "reps": "75s",
+          "reps": "90s",
           "rest": "30s",
           "charge": "",
           "rpe_target": "7",
@@ -144,7 +144,7 @@
         {
           "name": "Coude-Genoux croisés",
           "sets": "4",
-          "reps": "45",
+          "reps": "50",
           "rest": "30s",
           "rpe_target": "N/A",
           "check_technique": false,
@@ -157,7 +157,7 @@
         {
           "name": "Elliptique",
           "sets": "1",
-          "reps": "16min",
+          "reps": "18min",
           "rest": "0s",
           "rpe_target": "6",
           "check_technique": false,
