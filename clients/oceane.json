@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v21",
+  "programVersion": "2026-03-18_v22",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -74,7 +74,7 @@
     },
     {
       "id": "s_2",
-      "date": "2026-03-30",
+      "date": "2026-04-01",
       "name": "Renfo lourd",
       "session_intro": "Séance axée renforcement musculaire, en limitant la prise de volume musculaire !",
       "nutrition_tip": "Pour la perte de poids, ne néglige pas les protéines pendant tes repas, c'est bon pour la satiété et la construction des muscles. Assure toi d'avoir au moins 110gr de protéines par jour",
