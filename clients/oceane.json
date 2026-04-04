@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v23",
+  "programVersion": "2026-03-18_v24",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -74,7 +74,7 @@
     },
     {
       "id": "s_2",
-      "date": "2026-04-05",
+      "date": "2026-04-07",
       "name": "Renfo lourd",
       "session_intro": "Séance axée renforcement musculaire, en limitant la prise de volume musculaire !",
       "nutrition_tip": "Pour la perte de poids, ne néglige pas les protéines pendant tes repas, c'est bon pour la satiété et la construction des muscles. Assure toi d'avoir au moins 110gr de protéines par jour",
@@ -105,7 +105,7 @@
           "rpe_target": "8",
           "warmup_sets": "1",
           "check_technique": true,
-          "note_coach": "Ne néglige pas l'echauffement car on ajoute pas mal de charge là, monte tranquillement en charge avec quelques séries intermédiaire de quelques reps."
+          "note_coach": "N'OUBLIE PAS L'ECHAUFFEMENT, super important pour ce genre de charge, monte petit à petit :)."
         },
         {
           "name": "Corde à sauter",
@@ -167,7 +167,7 @@
     },
     {
       "id": "s_3",
-      "date": "2026-04-03",
+      "date": "2026-04-05",
       "session_intro": " ",
       "name": " Full Body Hybride cardio / renfo",
       "exercises": [
@@ -200,15 +200,15 @@
           "note_coach": "Focus chaîne postérieure. Garde le dos bien droit et monte la KB au moins à hauteur de tes yeux. Contraction des fessiers en fin de mouvement."
         },
         {
-          "name": "Burpees",
+          "name": "Vélo",
           "sets": "4",
-          "reps": "20",
+          "reps": "120s",
           "rest": "20s",
           "charge": "",
           "rpe_target": "7-8",
           "check_technique": true,
           "superset_type": "start",
-          "note_coach": ""
+          "note_coach": "Résistance faible mais vitesse élevée ! ça doit être cardio !"
         },
         {
           "name": " Corde à sauter",
@@ -224,10 +224,10 @@
         {
           "name": "Tirage bucheron (Rowing unilatéral haltère)",
           "sets": "4",
-          "reps": "14 par bras",
+          "reps": "Max",
           "rest": "60s",
           "rpe_target": "7",
-          "charge": "14",
+          "charge": "16",
           "check_technique": false,
           "note_coach": "Dos bien droit, prend appuis sur un banc avec la main libre, tire en essayant de rentrer l'omoplate vers l'intérieur en haut du mouvement."
         },
