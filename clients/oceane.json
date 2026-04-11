@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v24",
+  "programVersion": "2026-03-18_v25",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -548,10 +548,10 @@
     },
     {
       "id": "s_10",
-      "date": "2026-03-02",
-      "name": "Hybride : Jambes de Feu & Sprints Vélo",
-      "session_intro": "On fait chauffer les cuisses et le cardio ! Cette séance intègre beaucoup plus de vélo sous forme d'intervalles pour booster ta dépense calorique et augmenter la résistance de tes jambes.",
-      "nutrition_tip": "Ce format hybride (musculation + cardio intense) consomme beaucoup d'énergie. Une petite collation (comme une banane ou une compote) 45 min avant la séance te donnera le coup de boost idéal.",
+      "date": "2026-04-11",
+      "name": "Cardio et endurance des jambes",
+      "session_intro": "On fait monter le cardio ! Cette séance intègre beaucoup plus de vélo sous forme d'intervalles pour booster ta dépense calorique et augmenter la résistance de tes jambes.",
+      "nutrition_tip": "",
       "exercises": [
         {
           "type": "section",
@@ -574,10 +574,10 @@
         {
           "name": "Leg Press",
           "sets": "3",
-          "reps": "10-12",
+          "reps": "Max",
           "rest": "90s",
           "rpe_target": "8",
-          "charge": "40",
+          "charge": "100",
           "warmup_sets": "1",
           "check_technique": true,
           "note_coach": "Place tes pieds un peu plus haut sur le plateau pour bien cibler l'arrière des cuisses et les fessiers. Contrôle bien la descente, remonte vite en poussant fort."
@@ -588,7 +588,7 @@
           "reps": "12 pas en tout",
           "rest": "60s",
           "rpe_target": "7",
-          "charge": "10",
+          "charge": "8kg par bras",
           "check_technique": true,
           "note_coach": "Fais de grands pas pour étirer au maximum tes fessiers. Garde le buste bien droit et regarde loin devant toi. J'ai monté un peu la charge pour taper fort dans les fessiers !"
         },
@@ -637,9 +637,9 @@
           "title": "Finisher"
         },
         {
-          "name": "Corde à sauter",
+          "name": "Marche sur tapis incliné",
           "sets": "1",
-          "reps": "4 min",
+          "reps": "20 min",
           "rest": "0s",
           "rpe_target": "8-9",
           "charge": "",
