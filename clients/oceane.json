@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v26",
+  "programVersion": "2026-03-18_v27",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -577,8 +577,8 @@
           "reps": "Max",
           "rest": "90s",
           "rpe_target": "8",
-          "charge": "100",
-          "warmup_sets": "1",
+          "charge": "50",
+          "warmup_sets": "0",
           "check_technique": true,
           "note_coach": "Place tes pieds un peu plus haut sur le plateau pour bien cibler l'arrière des cuisses et les fessiers. Contrôle bien la descente, remonte vite en poussant fort."
         },
