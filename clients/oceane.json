@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v27",
+  "programVersion": "2026-03-18_v28",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -338,20 +338,20 @@
     },
     {
       "id": "s_6",
-      "date": "2026-03-14",
-      "name": " Cardio 2",
+      "date": "2026-04-16",
+      "name": " Cardio ",
       "nutrition_tip": "",
       "exercises": [
         { "type": "section", "title": "Cardio" },
         {
-          "name": "Escalier",
-          "sets": "4",
-          "reps": "8min",
+          "name": "Marche sur tapis",
+          "sets": "1",
+          "reps": "45min",
           "rest": "30s",
           "rpe_target": "6",
           "check_technique": true,
           "superset_type": "start",
-          "note_coach": " Trouve une vitesse qui te permet de tenir les 8 minutes quatre fois, cardio moyen, on ne fatigue pas trop les jambes pour attaquer fort la muscu la semaine prochaine ?"
+          "note_coach": " "
         },
 {
           "name": "Tirage verticale",
@@ -362,12 +362,12 @@
           "rpe_target": "8",
           "check_technique": true,
           "superset_type": "middle",
-          "note_coach": " la tu peux y aller, un maximum de reps ! "
+          "note_coach": " un maximum de reps ! "
 },
         {
           "name": "Burpees avec 2 pompes ",
           "sets": "4",
-          "reps": "10",
+          "reps": "12",
           "rest": "30s",
           "rpe_target": "8",
           "check_technique": false,
