@@ -1,7 +1,7 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v29",
+  "programVersion": "2026-03-18_v30",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
@@ -346,7 +346,7 @@
         {
           "name": "Marche sur tapis",
           "sets": "4",
-          "reps": "10",
+          "reps": "10min",
           "rest": "30s",
           "rpe_target": "6",
           "check_technique": true,
