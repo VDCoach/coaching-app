@@ -1,14 +1,14 @@
 {
   "clientName": "Océane",
   "programTitle": "Objectif mariage !",
-  "programVersion": "2026-03-18_v30",
+  "programVersion": "2026-03-18_v31",
   "baseline_weight_kg": 76,
   "recovery_url": null,
   "weeklyGoal": 3,
   "sessions": [
     {
       "id": "s_1",
-      "date": "2026-03-25",
+      "date": "2026-04-24",
       "name": "Haut du corps ",
       "session_intro": "Focus sur le haut du corps.",
       "nutrition_tip": "L'augmentation du cardio demande une hydratation constante. Vise 2L d'eau par jour minimum.",
@@ -20,7 +20,7 @@
         {
           "name": "Vélo Elliptique",
           "sets": "1",
-          "reps": "12 min",
+          "reps": "14 min",
           "rest": "0s",
           "rpe_target": "4",
           "note_coach": "Sers-toi au maximum des bras pour bien échauffer le haut du corps."
@@ -42,7 +42,7 @@
         {
           "name": "Développé Épaules à la machine",
           "sets": "3",
-          "reps": "10",
+          "reps": "12",
           "rest": "60s",
           "charge": "25",
           "rpe_target": "7",
@@ -51,7 +51,7 @@
         {
           "name": "Tirage Horizontal à la poulie assise",
           "sets": "3",
-          "reps": "10",
+          "reps": "12",
           "rest": "60s",
           "charge": "35",
           "rpe_target": "7",
@@ -64,7 +64,7 @@
         {
           "name": "Vélo",
           "sets": "1",
-          "reps": "16 min",
+          "reps": "18 min",
           "rest": "0s",
           "rpe_target": "4",
           "note_coach": "Vélo très tranquille, le cardio doit rester bas."
@@ -74,7 +74,7 @@
     },
     {
       "id": "s_2",
-      "date": "2026-04-07",
+      "date": "2026-04-26",
       "name": "Renfo lourd",
       "session_intro": "Séance axée renforcement musculaire, en limitant la prise de volume musculaire !",
       "nutrition_tip": "Pour la perte de poids, ne néglige pas les protéines pendant tes repas, c'est bon pour la satiété et la construction des muscles. Assure toi d'avoir au moins 110gr de protéines par jour",
@@ -101,7 +101,7 @@
           "sets": "3",
           "reps": "3-5",
           "rest": "120s",
-          "charge": "90",
+          "charge": "95",
           "rpe_target": "8",
           "warmup_sets": "1",
           "check_technique": true,
@@ -120,7 +120,7 @@
         {
           "name": "Tirage Vertical",
           "sets": "4",
-          "reps": "10",
+          "reps": "12",
           "rest": "15s",
           "charge": "40",
           "rpe_target": "7",
@@ -144,7 +144,7 @@
         {
           "name": "Coude-Genoux croisés",
           "sets": "4",
-          "reps": "50",
+          "reps": "55",
           "rest": "30s",
           "rpe_target": "N/A",
           "check_technique": false,
@@ -157,7 +157,7 @@
         {
           "name": "Elliptique",
           "sets": "1",
-          "reps": "18min",
+          "reps": "20min",
           "rest": "0s",
           "rpe_target": "6",
           "check_technique": false,
@@ -167,7 +167,7 @@
     },
     {
       "id": "s_3",
-      "date": "2026-04-05",
+      "date": "2026-04-28",
       "session_intro": " ",
       "name": " Full Body Hybride cardio / renfo",
       "exercises": [
@@ -202,7 +202,7 @@
         {
           "name": "Vélo",
           "sets": "4",
-          "reps": "120s",
+          "reps": "180s",
           "rest": "20s",
           "charge": "",
           "rpe_target": "7-8",
@@ -211,15 +211,15 @@
           "note_coach": "Résistance faible mais vitesse élevée ! ça doit être cardio !"
         },
         {
-          "name": " Corde à sauter",
+          "name": " Marche rapide inclinée",
           "sets": "4",
-          "reps": "120s",
+          "reps": "180s",
           "rest": "60s",
-          "charge": "20",
+          "charge": "",
           "rpe_target": "7",
           "check_technique": true, 
           "superset_type": "end",
-          "note_coach": ""
+          "note_coach": " Tu dois récupérer un peu niveau cardio sur celui-ci !"
         },
         {
           "name": "Tirage bucheron (Rowing unilatéral haltère)",
@@ -245,13 +245,13 @@
           "title": "Finisher"
         },
         {
-          "name": "Marche rapide sur tapis incliné",
+          "name": " Escalier",
           "sets": "1",
           "reps": "20min",
           "rest": "0s",
           "rpe_target": "6",
           "check_technique": false,
-          "note_coach": "Marche au moins à 6.5km/h si tu peux, sans te tenir au tapis."
+          "note_coach": ""
         }
       ]
     },
